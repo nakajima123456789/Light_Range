@@ -1,0 +1,10 @@
+#include "SCENE_PUSH.h"
+
+SCENE_PUSH::SCENE_PUSH()
+{
+}
+
+
+SCENE_PUSH::~SCENE_PUSH()
+{
+}

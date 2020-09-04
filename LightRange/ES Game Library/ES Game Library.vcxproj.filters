@@ -1,0 +1,695 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="ソース ファイル">
+      <UniqueIdentifier>{4FC737F1-C7A5-4376-A066-2A32D752A2FF}</UniqueIdentifier>
+      <Extensions>cpp;c;cc;cxx;def;odl;idl;hpj;bat;asm;asmx</Extensions>
+    </Filter>
+    <Filter Include="ソース ファイル\DirectX">
+      <UniqueIdentifier>{52f0c398-6f3f-4b31-b5cc-e233c9e88ef7}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ソース ファイル\DirectX\Audio">
+      <UniqueIdentifier>{ef6c1482-062f-4322-9fcc-b2e3428f622b}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ソース ファイル\DirectX\Common">
+      <UniqueIdentifier>{70abbe97-f257-4516-a246-4520f2aa5df1}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ソース ファイル\DirectX\Graphics">
+      <UniqueIdentifier>{86b1a02f-171a-4313-8ea4-b1d137632ed2}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ソース ファイル\DirectX\Input">
+      <UniqueIdentifier>{311b8efe-1118-41e1-be90-e82c07c16b41}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ソース ファイル\DirectX\Show">
+      <UniqueIdentifier>{b1a37f2b-2160-44c2-be78-3f6ef179cd1a}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ソース ファイル\ゲームシーン">
+      <UniqueIdentifier>{15c9d5d7-c2af-4195-8cd6-0e0f99f392f0}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ソース ファイル\フレームワーク">
+      <UniqueIdentifier>{4b856f3c-6e54-405b-a5c4-f306675c5835}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ヘッダー ファイル">
+      <UniqueIdentifier>{93995380-89BD-4b04-88EB-625FBE52EBFB}</UniqueIdentifier>
+      <Extensions>h;hpp;hxx;hm;inl;inc;xsd</Extensions>
+    </Filter>
+    <Filter Include="ヘッダー ファイル\DirectX">
+      <UniqueIdentifier>{309e4c22-f1c8-48c2-ba98-218f885e8cf2}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ヘッダー ファイル\DirectX\Audio">
+      <UniqueIdentifier>{a69b93cd-e4ad-43a8-8c16-15fab3005fde}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ヘッダー ファイル\DirectX\Common">
+      <UniqueIdentifier>{1a9582f4-adcb-4714-a6bd-bf359c99d30e}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ヘッダー ファイル\DirectX\Graphics">
+      <UniqueIdentifier>{f83da895-b0a8-4b2e-ba86-4c2de89b8218}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ヘッダー ファイル\DirectX\Input">
+      <UniqueIdentifier>{05d177a6-de44-40ee-98a2-bdbc5aeb6a91}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ヘッダー ファイル\DirectX\Show">
+      <UniqueIdentifier>{490af31d-88aa-47be-960f-9426abdfd81a}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ヘッダー ファイル\ゲームシーン">
+      <UniqueIdentifier>{5190455d-4fa0-44f3-bf2c-96cf15be6aa7}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ヘッダー ファイル\フレームワーク">
+      <UniqueIdentifier>{f8bf343e-4c0d-4f10-9354-67c485e74db3}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="リソース ファイル">
+      <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
+      <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav</Extensions>
+    </Filter>
+    <Filter Include="ソース ファイル\拡張">
+      <UniqueIdentifier>{7b2c0be1-4daf-4f01-85d7-16a261339968}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ソース ファイル\拡張\Kinect">
+      <UniqueIdentifier>{c8cec09d-182a-4a59-973a-25f56df6e18b}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ソース ファイル\拡張\OpenGL">
+      <UniqueIdentifier>{21521b09-ae8c-4af3-83b0-0699fef2b15b}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ヘッダー ファイル\拡張">
+      <UniqueIdentifier>{acdfa95c-02c0-41fc-9b5f-c94047e36cf5}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ヘッダー ファイル\拡張\Kinect">
+      <UniqueIdentifier>{5ec64b80-94b7-4b21-a7e9-0babd026cda0}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ヘッダー ファイル\拡張\OpenGL">
+      <UniqueIdentifier>{7daef5a6-8766-44dd-b454-4ff115ba6483}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ソース ファイル\拡張\Squirrel">
+      <UniqueIdentifier>{a56198a4-05d8-4cae-8b97-7e578be534d1}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ヘッダー ファイル\拡張\Squirrel">
+      <UniqueIdentifier>{1e6b27fe-fe8a-45fb-8d59-d64e486c6be4}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ソース ファイル\拡張\Effekseer">
+      <UniqueIdentifier>{d39ca619-d052-4071-b6a8-710f8d7189dc}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ヘッダー ファイル\拡張\Effekseer">
+      <UniqueIdentifier>{2f483e75-868d-4c12-b5ed-586cc91441fd}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ソース ファイル\拡張\DirectX11">
+      <UniqueIdentifier>{067e07fb-f669-4dba-97a6-10386fc6493c}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ヘッダー ファイル\拡張\DirectX11">
+      <UniqueIdentifier>{c5555203-f981-4c98-bade-f252465d8b6a}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ヘッダー ファイル\拡張\Live2D">
+      <UniqueIdentifier>{7203ca12-6c76-4701-9818-60570d85ceba}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ソース ファイル\拡張\Live2D">
+      <UniqueIdentifier>{9259a97e-29ed-438f-a5f2-8b14eed6a46a}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ソース ファイル\拡張\Direct2D">
+      <UniqueIdentifier>{38fde810-b5a9-40ee-b8ab-dcce25e1071f}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ヘッダー ファイル\拡張\Direct2D">
+      <UniqueIdentifier>{7d148ef6-f14c-46ff-82f0-5e90761952d6}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="変換用アセット">
+      <UniqueIdentifier>{82621faf-8306-44c1-bdbf-bfdd763ca17c}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="MyClass">
+      <UniqueIdentifier>{70708263-f8bf-4ac3-baf8-6dcba0a9c4c2}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="MyClass\Player">
+      <UniqueIdentifier>{f41b1677-48f9-464d-a951-1dd9dc539a0d}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="MyClass\Camera">
+      <UniqueIdentifier>{49972a88-3f9c-4af5-8597-32c42b036609}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="MyClass\Input">
+      <UniqueIdentifier>{2cc42635-04b6-4cd0-8707-810d6466fdac}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="MyClass\Object">
+      <UniqueIdentifier>{fb817f62-49f1-47cf-9640-b1942fc2b01a}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="MyClass\Scene">
+      <UniqueIdentifier>{4c539a32-57b2-4a2f-885c-7563dafa8f6f}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="MyClass\Scene\SCENE_MANAGER">
+      <UniqueIdentifier>{8df4f5a8-a975-4cce-a6de-ca30e5735b96}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="MyClass\Scene\GAME_OVER">
+      <UniqueIdentifier>{7f792f21-d883-42fd-8e32-4885954135ac}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="MyClass\Scene\MAIN">
+      <UniqueIdentifier>{401de890-cded-4245-8974-a8e62b92d007}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="MyClass\Scene\TITLE">
+      <UniqueIdentifier>{0d0d1cf2-8e9a-431c-a978-44fa01e52a79}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="MyClass\Scene\GAME_CLEAR">
+      <UniqueIdentifier>{db422e9c-3398-452f-a294-a3783e15e7b4}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="MyClass\State">
+      <UniqueIdentifier>{04614846-6b78-44b8-813f-da416e171707}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="MyClass\Hitbox">
+      <UniqueIdentifier>{fc2901a7-62e8-417a-862e-d5bb31321736}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="MyClass\Map">
+      <UniqueIdentifier>{8de5ca15-8d7d-4ab1-a5a4-dd61315d4f19}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="MyClass\Font">
+      <UniqueIdentifier>{d7276187-3047-448d-9fbe-969930f0498f}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="MapTXT">
+      <UniqueIdentifier>{7148c3e2-ea7d-43c7-83f5-58e4351e3f5e}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="MyClass\Shader">
+      <UniqueIdentifier>{677f72b1-f1d5-409b-ac4e-efe790166bdc}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="MyClass\Se">
+      <UniqueIdentifier>{1b6b0c77-a74e-4c68-8131-1c8c87ece23c}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="MyClass\Distance">
+      <UniqueIdentifier>{62520deb-63b7-48da-8d88-f6d726e08547}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="MyClass\Item_manager">
+      <UniqueIdentifier>{e51e02e0-a786-4fd9-9839-e52673083c81}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="MyClass\Item_manager\Item_Book">
+      <UniqueIdentifier>{dddf45e5-6da7-4b0b-a0d2-fe33ad427b5d}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="MyClass\Item_manager\Item_Base">
+      <UniqueIdentifier>{1464fc4e-5010-4811-89aa-649094a04f8f}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="MyClass\Enemy_manager">
+      <UniqueIdentifier>{4aa38793-7da0-4f1b-a0c5-588f9abd43e0}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="MyClass\Enemy_manager\Enemy_base">
+      <UniqueIdentifier>{6acf19f0-33ac-4494-ac53-141645653572}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="MyClass\Enemy_manager\Enemy_wander">
+      <UniqueIdentifier>{084e0477-59e9-41af-a0c8-84234656ae5f}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="MyClass\Ugui">
+      <UniqueIdentifier>{a71f6ea2-10b0-451b-8e71-be2ed0fd0adc}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="MyClass\Obsever">
+      <UniqueIdentifier>{9bb295f3-0f3d-4279-b20b-189e69811cc6}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="MyClass\Enemy_manager\Enemy_search">
+      <UniqueIdentifier>{312e59e7-c6aa-4d80-8213-9cebe704c8d9}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="MyClass\Enemy_manager\EnemyFactory">
+      <UniqueIdentifier>{6debf272-56b9-4601-8b35-52bb1ccc86fe}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="MyClass\Item_manager\ItemFactory">
+      <UniqueIdentifier>{99839e72-9f95-4818-9bd1-3c01e7279abf}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="MyClass\Nav">
+      <UniqueIdentifier>{7007565f-5f53-4bc8-8cf6-0665e51025a7}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="MyClass\Information">
+      <UniqueIdentifier>{7e613686-25ed-4934-a53f-b0ea7c9656db}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="MyClass\Scene\RESULT">
+      <UniqueIdentifier>{3b6ad435-1b06-4ba3-97bf-c8078138bc66}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="GameMain.cpp">
+      <Filter>ソース ファイル</Filter>
+    </ClCompile>
+    <ClCompile Include="WinMain.cpp">
+      <Filter>ソース ファイル</Filter>
+    </ClCompile>
+    <ClCompile Include="DirectX\Audio\DXAudio8.cpp">
+      <Filter>ソース ファイル\DirectX\Audio</Filter>
+    </ClCompile>
+    <ClCompile Include="DirectX\Audio\MusicSegment.cpp">
+      <Filter>ソース ファイル\DirectX\Audio</Filter>
+    </ClCompile>
+    <ClCompile Include="DirectX\Audio\Sound3DBuffer.cpp">
+      <Filter>ソース ファイル\DirectX\Audio</Filter>
+    </ClCompile>
+    <ClCompile Include="DirectX\Audio\SoundBuffer.cpp">
+      <Filter>ソース ファイル\DirectX\Audio</Filter>
+    </ClCompile>
+    <ClCompile Include="DirectX\Audio\SoundListener.cpp">
+      <Filter>ソース ファイル\DirectX\Audio</Filter>
+    </ClCompile>
+    <ClCompile Include="DirectX\Common\ComLibrary.cpp">
+      <Filter>ソース ファイル\DirectX\Common</Filter>
+    </ClCompile>
+    <ClCompile Include="DirectX\Graphics\AnimationModel.cpp">
+      <Filter>ソース ファイル\DirectX\Graphics</Filter>
+    </ClCompile>
+    <ClCompile Include="DirectX\Graphics\Camera.cpp">
+      <Filter>ソース ファイル\DirectX\Graphics</Filter>
+    </ClCompile>
+    <ClCompile Include="DirectX\Graphics\DXGFont.cpp">
+      <Filter>ソース ファイル\DirectX\Graphics</Filter>
+    </ClCompile>
+    <ClCompile Include="DirectX\Graphics\DXGraphics9.cpp">
+      <Filter>ソース ファイル\DirectX\Graphics</Filter>
+    </ClCompile>
+    <ClCompile Include="DirectX\Graphics\Effect.cpp">
+      <Filter>ソース ファイル\DirectX\Graphics</Filter>
+    </ClCompile>
+    <ClCompile Include="DirectX\Graphics\Model.cpp">
+      <Filter>ソース ファイル\DirectX\Graphics</Filter>
+    </ClCompile>
+    <ClCompile Include="DirectX\Graphics\RenderTarget.cpp">
+      <Filter>ソース ファイル\DirectX\Graphics</Filter>
+    </ClCompile>
+    <ClCompile Include="DirectX\Graphics\Sprite.cpp">
+      <Filter>ソース ファイル\DirectX\Graphics</Filter>
+    </ClCompile>
+    <ClCompile Include="DirectX\Graphics\Sprite3D.cpp">
+      <Filter>ソース ファイル\DirectX\Graphics</Filter>
+    </ClCompile>
+    <ClCompile Include="DirectX\Graphics\SpriteBatch.cpp">
+      <Filter>ソース ファイル\DirectX\Graphics</Filter>
+    </ClCompile>
+    <ClCompile Include="DirectX\Graphics\StateBlock.cpp">
+      <Filter>ソース ファイル\DirectX\Graphics</Filter>
+    </ClCompile>
+    <ClCompile Include="DirectX\Graphics\VertexBuffer.cpp">
+      <Filter>ソース ファイル\DirectX\Graphics</Filter>
+    </ClCompile>
+    <ClCompile Include="DirectX\Input\DInput8.cpp">
+      <Filter>ソース ファイル\DirectX\Input</Filter>
+    </ClCompile>
+    <ClCompile Include="DirectX\Input\InputDevice.cpp">
+      <Filter>ソース ファイル\DirectX\Input</Filter>
+    </ClCompile>
+    <ClCompile Include="DirectX\Input\InputEffect.cpp">
+      <Filter>ソース ファイル\DirectX\Input</Filter>
+    </ClCompile>
+    <ClCompile Include="DirectX\Show\DShow.cpp">
+      <Filter>ソース ファイル\DirectX\Show</Filter>
+    </ClCompile>
+    <ClCompile Include="DirectX\Show\Media.cpp">
+      <Filter>ソース ファイル\DirectX\Show</Filter>
+    </ClCompile>
+    <ClCompile Include="Framework\FixTimer.cpp">
+      <Filter>ソース ファイル\フレームワーク</Filter>
+    </ClCompile>
+    <ClCompile Include="Framework\GameApp.cpp">
+      <Filter>ソース ファイル\フレームワーク</Filter>
+    </ClCompile>
+    <ClCompile Include="Framework\GameFrameWindow.cpp">
+      <Filter>ソース ファイル\フレームワーク</Filter>
+    </ClCompile>
+    <ClCompile Include="Framework\GameProc.cpp">
+      <Filter>ソース ファイル\フレームワーク</Filter>
+    </ClCompile>
+    <ClCompile Include="Framework\Network.cpp">
+      <Filter>ソース ファイル\フレームワーク</Filter>
+    </ClCompile>
+    <ClCompile Include="Framework\Random.cpp">
+      <Filter>ソース ファイル\フレームワーク</Filter>
+    </ClCompile>
+    <ClCompile Include="Framework\SingleApp.cpp">
+      <Filter>ソース ファイル\フレームワーク</Filter>
+    </ClCompile>
+    <ClCompile Include="Framework\Stream.cpp">
+      <Filter>ソース ファイル\フレームワーク</Filter>
+    </ClCompile>
+    <ClCompile Include="Framework\Thread.cpp">
+      <Filter>ソース ファイル\フレームワーク</Filter>
+    </ClCompile>
+    <ClCompile Include="StdAfx.cpp" />
+    <ClCompile Include="Extension\Kinect\Kinect.cpp">
+      <Filter>ソース ファイル\拡張\Kinect</Filter>
+    </ClCompile>
+    <ClCompile Include="Extension\Kinect\NUI.cpp">
+      <Filter>ソース ファイル\拡張\Kinect</Filter>
+    </ClCompile>
+    <ClCompile Include="Extension\OpenGL\OpenGL.cpp">
+      <Filter>ソース ファイル\拡張\OpenGL</Filter>
+    </ClCompile>
+    <ClCompile Include="GameScene\TemplateScene.cpp">
+      <Filter>ソース ファイル\ゲームシーン</Filter>
+    </ClCompile>
+    <ClCompile Include="GameScene\SceneShared.cpp">
+      <Filter>ソース ファイル\ゲームシーン</Filter>
+    </ClCompile>
+    <ClCompile Include="Extension\Squirrel\Squirrel.cpp">
+      <Filter>ソース ファイル\拡張\Squirrel</Filter>
+    </ClCompile>
+    <ClCompile Include="Extension\Squirrel\Script.cpp">
+      <Filter>ソース ファイル\拡張\Squirrel</Filter>
+    </ClCompile>
+    <ClCompile Include="Extension\Effekseer\Effekseer.cpp">
+      <Filter>ソース ファイル\拡張\Effekseer</Filter>
+    </ClCompile>
+    <ClCompile Include="Extension\Effekseer\EffekseerEffect.cpp">
+      <Filter>ソース ファイル\拡張\Effekseer</Filter>
+    </ClCompile>
+    <ClCompile Include="Extension\DirectX11\DXGraphics11.cpp">
+      <Filter>ソース ファイル\拡張\DirectX11</Filter>
+    </ClCompile>
+    <ClCompile Include="Extension\DirectX11\Model11.cpp">
+      <Filter>ソース ファイル\拡張\DirectX11</Filter>
+    </ClCompile>
+    <ClCompile Include="Extension\Live2D\Live2D.cpp">
+      <Filter>ソース ファイル\拡張\Live2D</Filter>
+    </ClCompile>
+    <ClCompile Include="Extension\Direct2D\Direct2D.cpp">
+      <Filter>ソース ファイル\拡張\Direct2D</Filter>
+    </ClCompile>
+    <ClCompile Include="MyClass\C_CAMERA\C_CAMERA.cpp">
+      <Filter>MyClass\Camera</Filter>
+    </ClCompile>
+    <ClCompile Include="MyClass\ALL_SCENE\SCENEMANAGER\SceneManager.cpp">
+      <Filter>MyClass\Scene\SCENE_MANAGER</Filter>
+    </ClCompile>
+    <ClCompile Include="MyClass\ALL_SCENE\GAME_OVER\C_GAME_OVER.cpp">
+      <Filter>MyClass\Scene\GAME_OVER</Filter>
+    </ClCompile>
+    <ClCompile Include="MyClass\ALL_SCENE\MAIN\C_MAIN.cpp">
+      <Filter>MyClass\Scene\MAIN</Filter>
+    </ClCompile>
+    <ClCompile Include="MyClass\ALL_SCENE\TITLE\C_TITLE.cpp">
+      <Filter>MyClass\Scene\TITLE</Filter>
+    </ClCompile>
+    <ClCompile Include="MyClass\ALL_SCENE\GAME_CLEAR\GAEM_CLEAR.cpp">
+      <Filter>MyClass\Scene\GAME_CLEAR</Filter>
+    </ClCompile>
+    <ClCompile Include="MyClass\C_OBJECT\Object.cpp">
+      <Filter>MyClass\Object</Filter>
+    </ClCompile>
+    <ClCompile Include="MyClass\C_PLAYER\C_PLAYER.cpp">
+      <Filter>MyClass\Player</Filter>
+    </ClCompile>
+    <ClCompile Include="MyClass\c_Hitbox\HitBox.cpp">
+      <Filter>MyClass\Hitbox</Filter>
+    </ClCompile>
+    <ClCompile Include="MyClass\C_MAP_OBJECT\MAP_OBJECT.cpp">
+      <Filter>MyClass\Map</Filter>
+    </ClCompile>
+    <ClCompile Include="MyClass\C_INPUT\C_INPUT.cpp">
+      <Filter>MyClass\Input</Filter>
+    </ClCompile>
+    <ClCompile Include="MyClass\C_SHADER\C_SHADER.cpp">
+      <Filter>MyClass\Shader</Filter>
+    </ClCompile>
+    <ClCompile Include="MyClass\C_SE\C_SE.cpp">
+      <Filter>MyClass\Se</Filter>
+    </ClCompile>
+    <ClCompile Include="MyClass\C_Distance\C_DIS.cpp">
+      <Filter>MyClass\Distance</Filter>
+    </ClCompile>
+    <ClCompile Include="MyClass\C_ITEM_MANAGER\C_ITEM_BASE\C_ITEM_BASE.cpp">
+      <Filter>MyClass\Item_manager\Item_Base</Filter>
+    </ClCompile>
+    <ClCompile Include="MyClass\C_ITEM_MANAGER\C_ITEM_BOOK\C_ITEM_BOOK.cpp">
+      <Filter>MyClass\Item_manager\Item_Book</Filter>
+    </ClCompile>
+    <ClCompile Include="MyClass\C_ENEMY_MANAGER\C_ENEMY_BASE\C_ENEMY_BASE.cpp">
+      <Filter>MyClass\Enemy_manager\Enemy_base</Filter>
+    </ClCompile>
+    <ClCompile Include="MyClass\C_ENEMY_MANAGER\C_ENEMY_WANDER\C_ENEMY_WANDER.cpp">
+      <Filter>MyClass\Enemy_manager\Enemy_wander</Filter>
+    </ClCompile>
+    <ClCompile Include="MyClass\C_OBSERVER\OBSERVER.cpp">
+      <Filter>MyClass\Obsever</Filter>
+    </ClCompile>
+    <ClCompile Include="MyClass\C _UGUI\UGUI.cpp">
+      <Filter>MyClass\Ugui</Filter>
+    </ClCompile>
+    <ClCompile Include="MyClass\NAVMESHAGENT\NavMeshAgent.cpp">
+      <Filter>MyClass\Nav</Filter>
+    </ClCompile>
+    <ClCompile Include="MyClass\C_ENEMY_MANAGER\C_ENEMY_SEARCH\C_ENEMY_SEARCH.cpp">
+      <Filter>MyClass\Enemy_manager\Enemy_search</Filter>
+    </ClCompile>
+    <ClCompile Include="MyClass\C_ENEMY_FACTORY\C_ENEMY_FACTORY.cpp">
+      <Filter>MyClass\Enemy_manager\EnemyFactory</Filter>
+    </ClCompile>
+    <ClCompile Include="MyClass\C_ITEM_FACTORY\C_ITEM_FACTORY.cpp">
+      <Filter>MyClass\Item_manager\ItemFactory</Filter>
+    </ClCompile>
+    <ClCompile Include="MyClass\C_Information\Information.cpp">
+      <Filter>MyClass\Information</Filter>
+    </ClCompile>
+    <ClCompile Include="MyClass\ALL_SCENE\Result\Result.cpp">
+      <Filter>MyClass\Scene\RESULT</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="GameMain.h">
+      <Filter>ヘッダー ファイル</Filter>
+    </ClInclude>
+    <ClInclude Include="DirectX\Audio\DXAudio8.hpp">
+      <Filter>ヘッダー ファイル\DirectX\Audio</Filter>
+    </ClInclude>
+    <ClInclude Include="DirectX\Audio\MusicSegment.hpp">
+      <Filter>ヘッダー ファイル\DirectX\Audio</Filter>
+    </ClInclude>
+    <ClInclude Include="DirectX\Audio\Sound3DBuffer.hpp">
+      <Filter>ヘッダー ファイル\DirectX\Audio</Filter>
+    </ClInclude>
+    <ClInclude Include="DirectX\Audio\SoundBuffer.hpp">
+      <Filter>ヘッダー ファイル\DirectX\Audio</Filter>
+    </ClInclude>
+    <ClInclude Include="DirectX\Audio\SoundListener.hpp">
+      <Filter>ヘッダー ファイル\DirectX\Audio</Filter>
+    </ClInclude>
+    <ClInclude Include="DirectX\Common\ComLibrary.hpp">
+      <Filter>ヘッダー ファイル\DirectX\Common</Filter>
+    </ClInclude>
+    <ClInclude Include="DirectX\Graphics\AnimationModel.hpp">
+      <Filter>ヘッダー ファイル\DirectX\Graphics</Filter>
+    </ClInclude>
+    <ClInclude Include="DirectX\Graphics\Camera.hpp">
+      <Filter>ヘッダー ファイル\DirectX\Graphics</Filter>
+    </ClInclude>
+    <ClInclude Include="DirectX\Graphics\DXGFont.hpp">
+      <Filter>ヘッダー ファイル\DirectX\Graphics</Filter>
+    </ClInclude>
+    <ClInclude Include="DirectX\Graphics\DXGraphics9.hpp">
+      <Filter>ヘッダー ファイル\DirectX\Graphics</Filter>
+    </ClInclude>
+    <ClInclude Include="DirectX\Graphics\DXGTypes.h">
+      <Filter>ヘッダー ファイル\DirectX\Graphics</Filter>
+    </ClInclude>
+    <ClInclude Include="DirectX\Graphics\Effect.hpp">
+      <Filter>ヘッダー ファイル\DirectX\Graphics</Filter>
+    </ClInclude>
+    <ClInclude Include="DirectX\Graphics\Model.hpp">
+      <Filter>ヘッダー ファイル\DirectX\Graphics</Filter>
+    </ClInclude>
+    <ClInclude Include="DirectX\Graphics\RenderTarget.hpp">
+      <Filter>ヘッダー ファイル\DirectX\Graphics</Filter>
+    </ClInclude>
+    <ClInclude Include="DirectX\Graphics\Sprite.hpp">
+      <Filter>ヘッダー ファイル\DirectX\Graphics</Filter>
+    </ClInclude>
+    <ClInclude Include="DirectX\Graphics\Sprite3D.hpp">
+      <Filter>ヘッダー ファイル\DirectX\Graphics</Filter>
+    </ClInclude>
+    <ClInclude Include="DirectX\Graphics\SpriteBatch.hpp">
+      <Filter>ヘッダー ファイル\DirectX\Graphics</Filter>
+    </ClInclude>
+    <ClInclude Include="DirectX\Graphics\StateBlock.hpp">
+      <Filter>ヘッダー ファイル\DirectX\Graphics</Filter>
+    </ClInclude>
+    <ClInclude Include="DirectX\Graphics\VertexBuffer.hpp">
+      <Filter>ヘッダー ファイル\DirectX\Graphics</Filter>
+    </ClInclude>
+    <ClInclude Include="DirectX\Input\DInput8.hpp">
+      <Filter>ヘッダー ファイル\DirectX\Input</Filter>
+    </ClInclude>
+    <ClInclude Include="DirectX\Input\InputDevice.hpp">
+      <Filter>ヘッダー ファイル\DirectX\Input</Filter>
+    </ClInclude>
+    <ClInclude Include="DirectX\Input\InputEffect.hpp">
+      <Filter>ヘッダー ファイル\DirectX\Input</Filter>
+    </ClInclude>
+    <ClInclude Include="DirectX\Show\DShow.hpp">
+      <Filter>ヘッダー ファイル\DirectX\Show</Filter>
+    </ClInclude>
+    <ClInclude Include="DirectX\Show\Media.hpp">
+      <Filter>ヘッダー ファイル\DirectX\Show</Filter>
+    </ClInclude>
+    <ClInclude Include="GameScene\GameScene.hpp">
+      <Filter>ヘッダー ファイル\ゲームシーン</Filter>
+    </ClInclude>
+    <ClInclude Include="Framework\FixTimer.hpp">
+      <Filter>ヘッダー ファイル\フレームワーク</Filter>
+    </ClInclude>
+    <ClInclude Include="Framework\GameApp.hpp">
+      <Filter>ヘッダー ファイル\フレームワーク</Filter>
+    </ClInclude>
+    <ClInclude Include="Framework\GameFrameWindow.hpp">
+      <Filter>ヘッダー ファイル\フレームワーク</Filter>
+    </ClInclude>
+    <ClInclude Include="Framework\GameProc.hpp">
+      <Filter>ヘッダー ファイル\フレームワーク</Filter>
+    </ClInclude>
+    <ClInclude Include="Framework\GameWindow.hpp">
+      <Filter>ヘッダー ファイル\フレームワーク</Filter>
+    </ClInclude>
+    <ClInclude Include="Framework\Network.hpp">
+      <Filter>ヘッダー ファイル\フレームワーク</Filter>
+    </ClInclude>
+    <ClInclude Include="Framework\Random.hpp">
+      <Filter>ヘッダー ファイル\フレームワーク</Filter>
+    </ClInclude>
+    <ClInclude Include="Framework\SingleApp.hpp">
+      <Filter>ヘッダー ファイル\フレームワーク</Filter>
+    </ClInclude>
+    <ClInclude Include="Framework\Stream.hpp">
+      <Filter>ヘッダー ファイル\フレームワーク</Filter>
+    </ClInclude>
+    <ClInclude Include="Framework\Thread.hpp">
+      <Filter>ヘッダー ファイル\フレームワーク</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Resource\resource.h">
+      <Filter>リソース ファイル</Filter>
+    </ClInclude>
+    <ClInclude Include="StdAfx.h" />
+    <ClInclude Include="Extension\OpenGL\OpenGL.hpp">
+      <Filter>ヘッダー ファイル\拡張\OpenGL</Filter>
+    </ClInclude>
+    <ClInclude Include="Extension\Kinect\NUI.hpp">
+      <Filter>ヘッダー ファイル\拡張\Kinect</Filter>
+    </ClInclude>
+    <ClInclude Include="Extension\Kinect\Kinect.hpp">
+      <Filter>ヘッダー ファイル\拡張\Kinect</Filter>
+    </ClInclude>
+    <ClInclude Include="GameScene\SceneShared.hpp">
+      <Filter>ヘッダー ファイル\ゲームシーン</Filter>
+    </ClInclude>
+    <ClInclude Include="GameScene\TemplateScene.hpp">
+      <Filter>ヘッダー ファイル\ゲームシーン</Filter>
+    </ClInclude>
+    <ClInclude Include="ESGLib.h">
+      <Filter>ヘッダー ファイル</Filter>
+    </ClInclude>
+    <ClInclude Include="Extension\Squirrel\Squirrel.hpp">
+      <Filter>ヘッダー ファイル\拡張\Squirrel</Filter>
+    </ClInclude>
+    <ClInclude Include="Extension\Squirrel\Script.hpp">
+      <Filter>ヘッダー ファイル\拡張\Squirrel</Filter>
+    </ClInclude>
+    <ClInclude Include="Extension\Effekseer\Effekseer.hpp">
+      <Filter>ヘッダー ファイル\拡張\Effekseer</Filter>
+    </ClInclude>
+    <ClInclude Include="Extension\Effekseer\EffekseerEffect.hpp">
+      <Filter>ヘッダー ファイル\拡張\Effekseer</Filter>
+    </ClInclude>
+    <ClInclude Include="Extension\DirectX11\DXGraphics11.hpp">
+      <Filter>ヘッダー ファイル\拡張\DirectX11</Filter>
+    </ClInclude>
+    <ClInclude Include="Extension\DirectX11\Model11.hpp">
+      <Filter>ヘッダー ファイル\拡張\DirectX11</Filter>
+    </ClInclude>
+    <ClInclude Include="Extension\Live2D\Live2D.hpp">
+      <Filter>ヘッダー ファイル\拡張\Live2D</Filter>
+    </ClInclude>
+    <ClInclude Include="Extension\Direct2D\Direct2D.hpp">
+      <Filter>ヘッダー ファイル\拡張\Direct2D</Filter>
+    </ClInclude>
+    <ClInclude Include="MyClass\C_CAMERA\C_CAMERA.h">
+      <Filter>MyClass\Camera</Filter>
+    </ClInclude>
+    <ClInclude Include="MyClass\ALL_SCENE\SCENEMANAGER\SceneManager.h">
+      <Filter>MyClass\Scene\SCENE_MANAGER</Filter>
+    </ClInclude>
+    <ClInclude Include="MyClass\ALL_SCENE\SCENEMANAGER\BaseScreen.h">
+      <Filter>MyClass\Scene\SCENE_MANAGER</Filter>
+    </ClInclude>
+    <ClInclude Include="MyClass\ALL_SCENE\GAME_OVER\C_GAME_OVER.h">
+      <Filter>MyClass\Scene\GAME_OVER</Filter>
+    </ClInclude>
+    <ClInclude Include="MyClass\ALL_SCENE\MAIN\C_MAIN.h">
+      <Filter>MyClass\Scene\MAIN</Filter>
+    </ClInclude>
+    <ClInclude Include="MyClass\ALL_SCENE\TITLE\C_TITLE.h">
+      <Filter>MyClass\Scene\TITLE</Filter>
+    </ClInclude>
+    <ClInclude Include="MyClass\ALL_SCENE\GAME_CLEAR\GAEM_CLEAR.h">
+      <Filter>MyClass\Scene\GAME_CLEAR</Filter>
+    </ClInclude>
+    <ClInclude Include="MyClass\C_Input\C_INPUT.h">
+      <Filter>MyClass\Input</Filter>
+    </ClInclude>
+    <ClInclude Include="MyClass\C_OBJECT\Object.h">
+      <Filter>MyClass\Object</Filter>
+    </ClInclude>
+    <ClInclude Include="MyClass\C_PLAYER\C_PLAYER.h">
+      <Filter>MyClass\Player</Filter>
+    </ClInclude>
+    <ClInclude Include="MyClass\C_STATE\C_STATE.h">
+      <Filter>MyClass\State</Filter>
+    </ClInclude>
+    <ClInclude Include="MyClass\c_Hitbox\HitBox.h">
+      <Filter>MyClass\Hitbox</Filter>
+    </ClInclude>
+    <ClInclude Include="MyClass\C_MAP_OBJECT\MAP_OBJECT.h">
+      <Filter>MyClass\Map</Filter>
+    </ClInclude>
+    <ClInclude Include="MyClass\C_FONT\C_FONT.h">
+      <Filter>MyClass\Font</Filter>
+    </ClInclude>
+    <ClInclude Include="MyClass\C_SHADER\C_SHADER.h">
+      <Filter>MyClass\Shader</Filter>
+    </ClInclude>
+    <ClInclude Include="MyClass\C_SE\C_SE.h">
+      <Filter>MyClass\Se</Filter>
+    </ClInclude>
+    <ClInclude Include="MyClass\C_Distance\C_DIS.h">
+      <Filter>MyClass\Distance</Filter>
+    </ClInclude>
+    <ClInclude Include="MyClass\C_ITEM_MANAGER\C_ITEM_BASE\C_ITEM_BASE.h">
+      <Filter>MyClass\Item_manager\Item_Base</Filter>
+    </ClInclude>
+    <ClInclude Include="MyClass\C_ITEM_MANAGER\C_ITEM_BOOK\C_ITEM_BOOK.h">
+      <Filter>MyClass\Item_manager\Item_Book</Filter>
+    </ClInclude>
+    <ClInclude Include="MyClass\C_ENEMY_MANAGER\C_ENEMY_BASE\C_ENEMY_BASE.h">
+      <Filter>MyClass\Enemy_manager\Enemy_base</Filter>
+    </ClInclude>
+    <ClInclude Include="MyClass\C_ENEMY_MANAGER\C_ENEMY_WANDER\C_ENEMY_WANDER.h">
+      <Filter>MyClass\Enemy_manager\Enemy_wander</Filter>
+    </ClInclude>
+    <ClInclude Include="MyClass\C_OBSERVER\OBSERVER.h">
+      <Filter>MyClass\Obsever</Filter>
+    </ClInclude>
+    <ClInclude Include="MyClass\C _UGUI\UGUI.h">
+      <Filter>MyClass\Ugui</Filter>
+    </ClInclude>
+    <ClInclude Include="MyClass\NAVMESHAGENT\NavMeshAgent.h">
+      <Filter>MyClass\Nav</Filter>
+    </ClInclude>
+    <ClInclude Include="MyClass\C_ENEMY_MANAGER\C_ENEMY_SEARCH\C_ENEMY_SEARCH.h">
+      <Filter>MyClass\Enemy_manager\Enemy_search</Filter>
+    </ClInclude>
+    <ClInclude Include="MyClass\C_ENEMY_FACTORY\C_ENEMY_FACTORY.h">
+      <Filter>MyClass\Enemy_manager\EnemyFactory</Filter>
+    </ClInclude>
+    <ClInclude Include="MyClass\C_ITEM_FACTORY\C_ITEM_FACTORY.h">
+      <Filter>MyClass\Item_manager\ItemFactory</Filter>
+    </ClInclude>
+    <ClInclude Include="MyClass\C_Information\Information.h">
+      <Filter>MyClass\Information</Filter>
+    </ClInclude>
+    <ClInclude Include="MyClass\ALL_SCENE\Result\Result.h">
+      <Filter>MyClass\Scene\RESULT</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="..\Resource\DirectX.ico">
+      <Filter>リソース ファイル</Filter>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <ResourceCompile Include="..\Resource\Resource.rc">
+      <Filter>リソース ファイル</Filter>
+    </ResourceCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <Text Include="Content\File\MAP.txt">
+      <Filter>MapTXT</Filter>
+    </Text>
+  </ItemGroup>
+</Project>
