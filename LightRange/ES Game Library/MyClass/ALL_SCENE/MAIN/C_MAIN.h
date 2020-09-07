@@ -16,9 +16,5 @@ public:
 
 private:
 	ObjectManager _objectroot;
-	Object* enemy_card;
-
-	int ƒ¢t = 1;
-	int appearance_se;
 };
 

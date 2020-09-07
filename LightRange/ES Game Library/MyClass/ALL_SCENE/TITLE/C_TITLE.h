@@ -20,15 +20,7 @@ private:
 	Vector3 sprite_pos;
 
 	void Add_Sprite(LPCTSTR _sprite_name);
-	void Add_Sprite_Pos(Vector3 _sprite_pos);
-
 	std::vector<SPRITE> sprite_list_name;
-	std::vector<Vector3> sprite_list_pos;
 
-	MEDIA media;
-
-	int ƒ¢time = 1;
-	int end_time = 0;
-	bool scene_flag = false;
 };
 

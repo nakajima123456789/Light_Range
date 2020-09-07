@@ -23,6 +23,7 @@ public:
 
 	bool Initialize();
 
+	//SEの登録　SEの重複再生の可能(multiple)
 	int LoadSE(TCHAR* filename, const UINT multiple = 1);
 
 	void PlaySE(int index);
@@ -37,16 +38,22 @@ public:
 	bool IsSeVolume(int _set_number);
 
 	void StopLopeSE(int _number) { LopeSE[_number]->Stop(); };
+
 	std::vector<SOUND> GetLopeSE() const { return LopeSE; };
 
 	std::vector<SOUND> LopeSE;
 
 	MUSIC GetBgm() { return bgm; };
 
+	void  DistanceSeV(float _dis, float  _min_dis, int _number);
+
 private:
 	C_SE() {};
 	
 	MUSIC bgm;
+
+	std::vector<float> volume;
+	int C_SE::clamp(int x, int low, int high);
 
 	// メンバ変数
 	std::vector< std::vector<SOUND> > se;

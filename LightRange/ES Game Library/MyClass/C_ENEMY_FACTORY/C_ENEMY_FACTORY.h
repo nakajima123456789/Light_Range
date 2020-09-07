@@ -14,49 +14,35 @@
  *  @brief ’ŠÛ_ENEMY_FACTORYƒNƒ‰ƒX
  */
 
-class C_ENEMY_FACTORY
+class EnemyFactory
 {
 public:
-	C_ENEMY_FACTORY() {};
-	virtual ~C_ENEMY_FACTORY() {};
+	EnemyFactory() {};
+	virtual ~EnemyFactory() {};
 /**
  *  @brief object‚ğ¶¬‚µA‚»‚ÌƒCƒ“ƒXƒ^ƒ“ƒX‚ğ•Ô‚·ŠÖ”
  */
-	Object* Create(std::string _type, Vector3 _position) {
-		Object* object = CreateProduct(_type, _position);
-		return object;
-	}
-
-	Object* Create(std::string _type, std::map<int, Vector3> _position) {
-		Object* object = CreateProduct(_type, _position);
-		return object;
-	}
+	Object* Create(std::string _type, Vector3 _position);
+	Object* Create(std::string _type, std::map<int, Vector3> _position);
 private:
 /**
  *  @brief Product‚ğì¬‚·‚éƒˆ‰¼‘zŠÖ”
  *  @param type Product‚Ìí—Ş
  *  @param name Product‚ÌŠ—LÒ‚Ì–¼‘O
  */
-	virtual Object* CreateProduct(std::string _type, Vector3 _position) = 0;
+	virtual Object* CreateProduct(std::string _type, Vector3 _position)                = 0;
 	virtual Object* CreateProduct(std::string _type, std::map<int, Vector3> _position) = 0;
 };
 
-class EnemyStationeryFactory : public C_ENEMY_FACTORY {
+class EnemyStationeryFactory : public EnemyFactory {
 public:
 	/**
 	 * @brief Product‚ğì¬‚·‚éŠÖ”
 	 */
-	Object* CreateProduct(std::string _type, Vector3 _position) override 
-	{
-		if (_type == "’Tõ“G‘") { return new C_ENEMY_SEARCH(1, _position, 0.02f, 30); }
+	Object* CreateProduct(std::string _type, Vector3 _position) override;
+	Object* CreateProduct(std::string _type, std::map<int, Vector3> _position) override;
 
-		if (_type == "’Tõ“G’x") { return new C_ENEMY_SEARCH(0, _position, 0.01f, 120); }
-		ASSERT(FALSE && !"“G‚Ì–¼‘O‚ªˆá‚¤!");
-	}
+private:
 
-	Object* CreateProduct(std::string _type, std::map<int, Vector3> _position) override
-	{
-		if (_type == "œpœj“G"){ return new C_ENEMY_WANDER(_position);}
-		ASSERT(FALSE && !"“G‚Ì–¼‘O‚ªˆá‚¤!");
-	}
+	EnemyData set_enemy_serch_data;
 };

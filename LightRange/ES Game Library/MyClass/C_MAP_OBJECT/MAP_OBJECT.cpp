@@ -11,20 +11,28 @@ void CHARACTER_MANAGER::CharacterTagPreference(char _tag, ...){
 	va_list arguments;
 	va_start(arguments, _tag);
 
-	for (char x = 0; x < _tag; x++){character_tag_manager.push_back(va_arg(arguments, char));}
+	//引数の文字を登録する。
+	for (char x = 0; x < _tag; x++)
+	{
+		character_tag_manager.push_back(va_arg(arguments, char));
+	}
+	//
 	character_position_manager.resize(character_tag_manager.size());
 	return;
 }
 //文字と座標をそれぞれの配列に入れる二次元配列
-int CHARACTER_MANAGER::PosSetCharacterEach(char _map_tag, Vector3 _position){
-	for (int i = 0; i < character_tag_manager.size(); i++){
-		if (_map_tag == character_tag_manager[i]){
+int CHARACTER_MANAGER::PosSetCharacterEach(char _map_tag, Vector3 _position)
+{
+	for (int i = 0; i < character_tag_manager.size(); i++)
+	{
+		if (_map_tag == character_tag_manager[i])
+		{
 			character_position_manager[i].push_back(_position);
 		}
 	}
 	return 0;
 }
-//文字とモデルデータを統一化する
+//文字とモデルデータを登録する
 void MAP_OBJECT_MANAGER::SetModelAndTag(char _tag, LPCTSTR _model_name)
 {
 	map_tag_manager.push_back(_tag);
@@ -40,16 +48,20 @@ void MAP_OBJECT_MANAGER::SetModelAndTag(char _tag, LPCTSTR _model_name)
 MAP_OBJECT_MANAGER::MAP_OBJECT_MANAGER()
 {
 	IsHitObjectsInit();
+
 	SetModelAndTag('#', GetModelFileName(MAP_TYPE_WALL));
 	SetModelAndTag('B', GetModelFileName(MAP_TYPE_BOOKSHELL));
 	SetModelAndTag(' ', GetModelFileName(MAP_TYPE_FROAR));
 
 	std::fill(c_shader_manager.begin(), c_shader_manager.end(), new CShaderModel);
-	for (UINT i = 0; i < MAP_TYPE_MAX; ++i){
+
+	for (UINT i = 0; i < MAP_TYPE_MAX; ++i)
+	{
 		c_shader_manager[i]->ShaderInitialize(GetModelFileName(i), _T("FX/Light.hlsl"));
 	}
 };
 
+//モデルのファイルネーム取得
 LPCTSTR MAP_OBJECT_MANAGER::GetModelFileName(int _model_index)
 {
 	switch (_model_index)
@@ -66,15 +78,19 @@ LPCTSTR MAP_OBJECT_MANAGER::GetModelFileName(int _model_index)
 	}
 }
 
+//マップとの距離を取得
 void MAP_OBJECT_MANAGER::MapDistance(Vector3 _target_pos)
 {
-	for (int i = 0; i < map_manager_pos.size(); i++){
-		for (int x = 0; x < map_manager_pos[i].size(); x++){
+	for (int i = 0; i < map_manager_pos.size(); i++)
+	{
+		for (int x = 0; x < map_manager_pos[i].size(); x++)
+		{
 			all_map_with_distance[i][x] = Vector3_Distance(_target_pos, map_manager_pos[i][x]);
 		}
 	}
 }
 
+//一番近い座標にヒットボックスを表示する
 void MAP_OBJECT_MANAGER::MapSetHitBox()
 {
 	std::vector<std::vector<float>> txt_dis;
@@ -84,10 +100,10 @@ void MAP_OBJECT_MANAGER::MapSetHitBox()
 	for (int i = 0; i < txt_dis.size(); i++)
 	{
 		txt_dis[i] = all_map_with_distance[i];
+
 		auto&& min_distance = std::min_element(txt_dis[i].begin(), txt_dis[i].end(), [](float actor, float min) {return actor < min; });
-		Vector3 pos;
-		if (i == MAP_TYPE_BOOKSHELL) { pos = Vector3(0.0f, 0.0f, 0.6f); } else { pos = Vector3_Zero; };
-		hitbox[i]->SetHitBoxPosition(map_manager_pos[i][std::distance(txt_dis[i].begin(), min_distance)] + pos);
+
+		hitbox[i]->SetHitBoxPosition(map_manager_pos[i][std::distance(txt_dis[i].begin(), min_distance)]);
 	}
 }
 
@@ -101,14 +117,19 @@ void MAP_OBJECT_MANAGER::Draw()
 			if (all_map_with_distance[i][z] <= light_range)
 			{
 				float alpha = 1.0f;
+
 				c_shader_manager[i]->IsModelPass(map_model_manager[i]);
+
 				EFFECT shader = c_shader_manager[i]->ShaderDraw(alpha);
+
 				this->map_model_manager[i]->SetPosition(map_manager_pos[i][z]);
+
 				this->map_model_manager[i]->Draw(shader);
 			}
         }
 	}
 	MapObjectScale(Vector3_One * 0.0254f);
+
 	IsHitObjectsDraw();
 }
 
@@ -122,12 +143,15 @@ void MAP_OBJECT_MANAGER::each(std::function<void(MODEL&)> action)
 	std::for_each(map_model_manager.begin(), map_model_manager.end(),[&](MODEL& model) { action(model); });
 }
 
+//ライトの光源の強さ
 float MAP_OBJECT_MANAGER::Attenuation(float _index) 
 {
+	ASSERT(_index <= 1.0f && "ライトの光源は1.0未満の値にしてください");
 	std::for_each(c_shader_manager.begin(), c_shader_manager.end(), [=](CShaderManager* _c_shader_manager) {_c_shader_manager->SetAttenuation(_index);});
 	return 0;
 }
 
+//二次元配列それぞれの座標を入れていく
 void MAP_OBJECT_MANAGER::PosSetMapEachBegin(char tag_name, Vector3 _position)
 {
 	for (int i = 0; i < map_tag_manager.size(); i++)
@@ -160,14 +184,13 @@ void MAP_OBJECT_MANAGER::PosSetMapEachEnd(char tag_name, Vector3 _position)
 
 int  MAP_OBJECT_MANAGER::IsHitObjectsInit()
 {
-
 	hitbox.resize(1);
 
 	hitbox[MAP_TYPE_WALL] = new HitBox;
 	hitbox[MAP_TYPE_WALL]->Init();
 	hitbox[MAP_TYPE_WALL]->Settags("map");
 
-	hitbox[MAP_TYPE_WALL]->SetHitBoxScale(2.010f);
+	hitbox[MAP_TYPE_WALL]->SetHitBoxScale(2.2f);
 
 
 	return 0;
@@ -175,6 +198,7 @@ int  MAP_OBJECT_MANAGER::IsHitObjectsInit()
 
 MAP_OBJECT_MANAGER::~MAP_OBJECT_MANAGER()
 {
+	//自分を消す
 	std::for_each(hitbox.begin(), hitbox.end(), [&](HitBox* _hitbox) { _hitbox->OnReMove(); });
 };
 
@@ -191,8 +215,6 @@ float MAP_OBJECT_MANAGER::SpecifiedArgument(Vector3 pos, Vector3 _p)
 			map_model_manager[MAP_TYPE_WALL]->IntersectRay(pos + Vector3(0.f, 0.7f, 0.f), _p, &n_distance);
 		}
 	}
-
-
 	return n_distance;
 }
 
@@ -256,12 +278,19 @@ void MAP_MANAGER::Draw3D()
 	map_object_manager->Draw();
 }
 
+//指定されたタグかどうかを調べえる
 bool MAP_MANAGER::Tag_sarch(char _is_mapdate)
 {
 	bool flag = false;
-	for (int i = 0; i < character_manager->GetCharacterTag().size(); i++){if (_is_mapdate == character_manager->GetCharacterTag()[i]){flag = true;}}
-	for (int i = 0; i < map_object_manager->GetMapTag().size(); i++){if (_is_mapdate == map_object_manager->GetMapTag()[i]){flag = true;}}
+	for (int i = 0; i < character_manager->GetCharacterTag().size(); i++)
+	{if (_is_mapdate == character_manager->GetCharacterTag()[i]){flag = true;}}
+
+	for (int i = 0; i < map_object_manager->GetMapTag().size(); i++)
+	{if (_is_mapdate == map_object_manager->GetMapTag()[i]){flag = true;}}
+
 	char null_char[] = { '\n',' ', };
-	for (int i = 0; i < 2; i++){if (_is_mapdate == null_char[i]) {flag = true; }}
+	const size_t size = sizeof(null_char) / sizeof(null_char[0]);
+	for (int i = 0; i < size; i++){if (_is_mapdate == null_char[i]) {flag = true; }}
+
 	return flag;
 }

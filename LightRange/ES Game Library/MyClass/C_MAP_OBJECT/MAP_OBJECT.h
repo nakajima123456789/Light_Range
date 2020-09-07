@@ -47,7 +47,6 @@ public:
 private:
 
 	std::vector<char> character_tag_manager;
-
 	std::vector<std::vector<Vector3>> character_position_manager;
 
 public:
@@ -81,7 +80,10 @@ public:
 	std::vector<HitBox*> Get_Hit_Box() const { return hitbox; };
 
 	std::vector<char> GetMapTag() const { return map_tag_manager; };
+
 private:
+
+
 	std::vector<char>  map_tag_manager;
 	std::vector<MODEL> map_model_manager;
 
@@ -102,6 +104,7 @@ private:
 	void SetModelAndTag(char _tag, LPCTSTR _model_name);
 
 	LPCTSTR GetModelFileName(int _model_index);
+
 };
 
 class MAP_MANAGER : public Object
@@ -128,7 +131,7 @@ public:
 
 	float GetPDistance(Vector3 pos, Vector3 p) { return  map_object_manager->SpecifiedArgument(pos, p); };
 
-	std::vector<HitBox*> Get_Hit_Box()const { return map_object_manager->Get_Hit_Box(); }
+	std::vector<HitBox*> Get_Hit_Box() const { return map_object_manager->Get_Hit_Box(); }
 
 	ANIMATIONMODEL* player_animation_model;
 private:
@@ -139,7 +142,6 @@ private:
 	std::shared_ptr<MAP_OBJECT_MANAGER>  map_object_manager;
 
 	char get_map_date(int _y, int _x) const { return mapdata[_y][_x]; };
-
 
 	void SetBlock(int x, int y, char block) { mapdata[x][y] =  block; };
 	void MapDataFileName(char* _map_name);

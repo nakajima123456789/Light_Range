@@ -25,7 +25,7 @@ public:
 	//PLAYERÇ∆ENEMYÇ∆ÇÃè’ìÀîªíË
 	virtual void UGUI::ItemOnCollision() override;
 
-	void UGUI::set_item_size(const unsigned _item_size) { item_size = _item_size; };
+	void UGUI::GetItemSize(const unsigned _item_size) { item_size = _item_size; };
 private:
 	int UGUI::add_sprite(LPCTSTR _sprite_name);
 	int UGUI::clamp(int x, int low, int high);
@@ -42,8 +42,6 @@ private:
 	int cover_image;
 	int gage_pt_image;
 	int gage_sp_image;
-	int obsever_enemy_image;
-	float obsever_enemy_image_index = 1.0f;
 
 	double gage_sp_image_index = 407;
 

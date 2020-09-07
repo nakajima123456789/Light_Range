@@ -2,32 +2,35 @@
 
 #include "../../C_SE/C_SE.h"
 
-C_ITEM_BOOK::C_ITEM_BOOK(Vector3 _position)
+CItemBook::CItemBook(Vector3 _position)
 {
 	this->transform.position = _position;
 }
 
-void C_ITEM_BOOK::Init()
+void CItemBook::Init()
 {
 	model   = GraphicsDevice.CreateModelFromFile(_T("MODEL//book_item//book_01.X"));
+	ASSERT(model != nullptr && "アイテムモデルが見つかりません");
 
-	item_se = SNDMANAGER.LoadSE(_T("SE//SE//キーアイテム獲得時.wav"), 5);
+	item_get_se = SNDMANAGER.LoadSE(_T("SE//SE//キーアイテム獲得時.wav"), 5);
 
-	string tag = "item";
-
-	IsHitObjectsInit(tag);
+	IsHitObjectsInit("item");
 }
 
-void C_ITEM_BOOK::Update()
+void CItemBook::Update()
 {
-	if (IsHitObjects("player")) { 
+	//プレイヤーと当たったら
+	if (IsHitObjects("player")) 
+	{ 
+		//オブザーバーUGUL クラスに報告
 		obsever.ItemIsCollision();
+		//自分を消す
 		this->IsRemove_flag(true); 
-		SNDMANAGER.PlaySE(item_se);
+		SNDMANAGER.PlaySE(item_get_se);
 	};
 }
 
-void C_ITEM_BOOK::Draw3D()
+void CItemBook::Draw3D()
 {
 	model->SetPosition((this->transform.position));
 	model->SetRotation(this->transform.rotation);

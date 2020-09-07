@@ -1,6 +1,7 @@
 #include "C_ITEM_BASE.h"
 
-void  C_ITEM_BASE::IsHitObjectsInit(std::string _tags)
+//ヒットボックス生成
+void  CItemBase::IsHitObjectsInit(std::string _tags)
 {
 	hitbox.reset(new HitBox);
 	hitbox->Init();
@@ -10,14 +11,15 @@ void  C_ITEM_BASE::IsHitObjectsInit(std::string _tags)
 	hitbox->SetHitBoxPosition(Vector3(2, 0, -2));
 }
 
-void  C_ITEM_BASE::IsHitObjectsDraw(Vector3 _pos)
+//ヒットボックス描画
+void  CItemBase::IsHitObjectsDraw(Vector3 _pos)
 {
 	hitbox->SetHitBoxPosition(_pos);
 	hitbox->Draw3D();
 }
 
-bool C_ITEM_BASE::IsHitObjects(std::string tags) {
-	ASSERT(hitbox->Tag_Sarch(tags) && "指定したHITBOXのタグが存在していません。");
+//引数に渡されたタグのヒットボックスが当たって入れTRUEを返す。
+bool CItemBase::IsHitObjects(std::string tags) {
 	bool result = false;
 	std::list<HitBox*> HitList = hitbox->HitHitBoxlist();
 

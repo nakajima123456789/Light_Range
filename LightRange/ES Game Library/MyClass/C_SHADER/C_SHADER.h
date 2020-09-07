@@ -2,10 +2,12 @@
 #include "../../ESGLib.h"
 #include "../C_CAMERA/C_CAMERA.h"
 
-class CShaderManager
+class CShaderManager//譲渡関係
 {
 public:
+	//shared登録関数　モデルテキストファイルネームと　HLSLのファイルネーム
 	virtual void ShaderInitialize(LPCTSTR _tex_path, LPCTSTR _shader_filename) = 0;
+
 	virtual EFFECT ShaderDraw(float& alpha)                                    = 0;
 
 	virtual void IsModelPass(ANIMATIONMODEL _animation_model) {};
@@ -13,10 +15,10 @@ public:
 
 	virtual void SetAttenuation(float _set_attenuation)                        = 0;
 
-	static void CameraSetting(C_CAMERA& _get_camera_manager) { camera = &_get_camera_manager; };
+	static void CameraSetting(CCamera_& _get_camera_manager) { camera = &_get_camera_manager; };
 protected:
 
-	static C_CAMERA* camera;
+	static CCamera_* camera;
 	const Vector3 light_pos_correction = Vector3(0, 1, 0);
 	EFFECT  shader = nullptr;
 

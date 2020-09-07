@@ -1,11 +1,11 @@
 #pragma once
 #include "../../ESGLib.h"
 
-class NavMeshAgent
+class Astar
 {
 public:
-	NavMeshAgent::NavMeshAgent();
-	virtual NavMeshAgent::~NavMeshAgent() { };
+	Astar::Astar();
+	virtual Astar::~Astar() { };
 
 	void Update(Vector3 _player_position, ANIMATIONMODEL& _animation_model, double _speed);
 

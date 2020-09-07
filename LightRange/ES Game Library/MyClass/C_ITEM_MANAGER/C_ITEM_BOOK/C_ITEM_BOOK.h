@@ -3,23 +3,25 @@
 #include "../../c_Hitbox/HitBox.h"
 #include "../../C_OBSERVER/OBSERVER.h"
 
-class C_ITEM_BOOK : public C_ITEM_BASE
+class CItemBook : public CItemBase
 {
 public:
-	C_ITEM_BOOK(Vector3 _position);
-	virtual ~C_ITEM_BOOK() { };
+	CItemBook(Vector3 _position);
+	virtual ~CItemBook() { };
 
-	virtual void C_ITEM_BOOK::Init()        override;
-	virtual void C_ITEM_BOOK::Update()      override;
-	virtual void C_ITEM_BOOK::Draw3D()      override;
+	virtual void CItemBook::Init()        override;
+	virtual void CItemBook::Update()      override;
+	virtual void CItemBook::Draw3D()      override;
 
-	virtual void C_ITEM_BOOK::DrawAlpha3D() override { return; };
-	virtual void C_ITEM_BOOK::Draw2D()      override { return; };
+	virtual void CItemBook::DrawAlpha3D() override { return; };
+	virtual void CItemBook::Draw2D()      override { return; };
 
 private:
 
 	MODEL model;
-
 	OBSERVER obsever;
+
+	int item_get_se;
+
 };
 
