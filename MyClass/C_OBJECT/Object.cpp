@@ -101,6 +101,12 @@ void Object::ChildDrawAlpha3D() {
 	std::for_each(p_childObjects.begin(), p_childObjects.end(), [](ChildObjRef & c) {c->ChildDrawAlpha3D();});
 }
 
+void Object::ChildDrawEnd()
+{
+	std::for_each(p_childObjects.begin(), p_childObjects.end(), [](ChildObjRef& c) {c->DrawEnd(); });
+	std::for_each(p_childObjects.begin(), p_childObjects.end(), [](ChildObjRef& c) {c->ChildDrawEnd(); });
+}
+
 //消去
 void Object::Remove() {
    this->_isRemove = true;
@@ -141,6 +147,10 @@ void ObjectManager::Draw3D() {
 }
 void ObjectManager::DrawAlpha3D() {
 	_root.ChildDrawAlpha3D();
+}
+
+void ObjectManager::DrawEnd(){
+	_root.ChildDrawEnd();
 }
 
 //子オブジェクトリストに挿入

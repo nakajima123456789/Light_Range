@@ -30,6 +30,7 @@ void HitBox::Settags(string tags) {
 	tag = tags;
 }
 
+//ヒットボックス生成
 void HitBox::SetHitBox(float width, float height, float depth) {
 	//パラメータ設定
 	_width = width;
@@ -140,6 +141,7 @@ HitBox* HitBox::TypeRayRange(std::string tag, Vector3 position, Vector3 angle, f
 	return  p_result;
 }
 
+//欲しいヒットボックスを取得できる
 HitBox* HitBox::Get_Tag_HitBox(std::string tag)
 {
 	Tag_Sarch(tag);

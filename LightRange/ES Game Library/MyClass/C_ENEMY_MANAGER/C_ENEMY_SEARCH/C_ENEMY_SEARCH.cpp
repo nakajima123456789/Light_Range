@@ -1,4 +1,5 @@
 #include "C_ENEMY_SEARCH.h"
+#include "../../C_Effekseer/CEffekseer_.h"
 
 CEnemySearch::CEnemySearch(EnemyData _c_enemy_date) : enemy_date(_c_enemy_date)
 {
@@ -31,6 +32,8 @@ void CEnemySearch::Init()
 
 	IsHitObjectsInit("enemy");
 	  IsDistanceInit("enemy");
+
+
 }
 
 void CEnemySearch::Update()
@@ -52,7 +55,9 @@ void CEnemySearch::DrawAlpha3D()
 {
 	ShaderAlphaDraw();
 	EFFECT shader = ShaderDrawGetEffct();
+
 	animation_model->Draw(shader);
+
 }
 
 

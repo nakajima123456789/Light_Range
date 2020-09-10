@@ -15,6 +15,8 @@ public:
 	virtual void CCamera_::DrawAlpha3D() override { return; };
 	virtual void CCamera_::Draw2D()      override { return; };
 
+	virtual void CCamera_::DrawEnd()      override;
+
 	CAMERA  GetCamera() const { return camera; };
 	Light   GetLight()  const { return light; };
 	Vector3 GetPos()    const { return pos;};
@@ -27,5 +29,6 @@ private:
 	Vector3 pos;
 
 	Transform* player_transform;
+
 };
 

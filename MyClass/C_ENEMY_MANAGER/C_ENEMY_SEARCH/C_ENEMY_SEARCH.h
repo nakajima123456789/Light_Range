@@ -2,36 +2,45 @@
 #include "../C_ENEMY_BASE/C_ENEMY_BASE.h"
 #include "../../NAVMESHAGENT/NavMeshAgent.h"
 
-class ENEMYSEARCHSTATEPROCESSOR;
-class C_ENEMY_SEARCH;
+class EnemySearchStateProcessor;
+class CEnemySearch;
 
-class ENEMYSEARCHSTATEPROCESSOR : public  StateProcessor {
-public:
-	C_ENEMY_SEARCH* c_enemy_search;
-};
-
-class C_ENEMY_SEARCH : public C_ENEMY_BASE
+class EnemyData
 {
 public:
-	C_ENEMY_SEARCH(int _model_type, Vector3 _position, float _speed, double _animation_speed);
-	virtual ~C_ENEMY_SEARCH();
+	Vector3 pos;
+	float   speed;
+	float   AdvanceTime;
+	int     model_type;
+};
 
-	ENEMYSEARCHSTATEPROCESSOR enemysearchstateprocessor;
+class EnemySearchStateProcessor : public  StateProcessor {
+public:
+	CEnemySearch* c_enemy_search;
+};
 
-	virtual void C_ENEMY_SEARCH::Init()        override;
-	virtual void C_ENEMY_SEARCH::Update()      override;
-	virtual void C_ENEMY_SEARCH::Draw3D()      override;
+class CEnemySearch : public CEnemyBase
+{
+public:
+	CEnemySearch(EnemyData _c_enemy_date);
+	virtual ~CEnemySearch();
 
-	virtual void C_ENEMY_SEARCH::DrawAlpha3D() override;
-	virtual void C_ENEMY_SEARCH::Draw2D()      override { return; };
+	EnemySearchStateProcessor enemysearchstateprocessor;
+
+	virtual void CEnemySearch::Init()        override;
+	virtual void CEnemySearch::Update()      override;
+	virtual void CEnemySearch::Draw3D()      override;
+
+	virtual void CEnemySearch::DrawAlpha3D() override;
+	virtual void CEnemySearch::Draw2D()      override { return; };
 
 	class IDOL : public State
 	{
 	private:
-		ENEMYSEARCHSTATEPROCESSOR* _owner;
+		EnemySearchStateProcessor* _owner;
 
 	public:
-		IDOL(ENEMYSEARCHSTATEPROCESSOR* owner) : _owner(owner) { };
+		IDOL(EnemySearchStateProcessor* owner) : _owner(owner) { };
 		virtual ~IDOL() {};
 
 		virtual int    CancelLv() { return INT_MAX; };
@@ -43,9 +52,9 @@ public:
 	class RUN : public State
 	{
 	private:
-		ENEMYSEARCHSTATEPROCESSOR* _owner;
+		EnemySearchStateProcessor* _owner;
 	public:
-		RUN(ENEMYSEARCHSTATEPROCESSOR* owner) : _owner(owner) {}
+		RUN(EnemySearchStateProcessor* owner) : _owner(owner) {}
 		virtual ~RUN() {}
 
 		virtual int    CancelLv() { return INT_MAX; };
@@ -55,8 +64,9 @@ public:
 	};
 
 private:
-	NavMeshAgent nav_mesh_agent;
+	//探索プログラム
+	Astar nav_mesh;
+	//初期ステータス設定
+	EnemyData enemy_date;
 
-	float  speed; 
-	double animation_speed;
 };

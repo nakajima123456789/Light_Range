@@ -14,10 +14,13 @@
 
 #include "../../C_Information/Information.h"
 
+#include "../../C_Effekseer/CEffekseer_.h"
+
 void C_MAIN::Initialize(){
 
 	auto c_camera = (new CCamera_);
 	_objectroot.AddList((ChildObjRef)c_camera);
+
 	CShaderAnimation::CameraSetting(*c_camera);
 
 	auto&& c_map = (new MAP_MANAGER);
@@ -115,4 +118,9 @@ void C_MAIN::DrawAlpha3D()
 
 	GraphicsDevice.EndAlphaBlend();
 };
+
+void C_MAIN::DrawEnd()
+{
+	_objectroot.DrawEnd();
+}
 

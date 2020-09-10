@@ -15,19 +15,16 @@
  *  @brief 抽象_ENEMY_FACTORYクラス
  */
 
-class C_ITEM_FACTORY
+class CItemFactory
 {
 public:
-	C_ITEM_FACTORY() {};
-	virtual ~C_ITEM_FACTORY() {};
+	CItemFactory() {};
+	virtual ~CItemFactory() {};
 
 /**
  *  @brief objectを生成し、そのインスタンスを返す関数
  */
-	Object* Create(std::string _type, Vector3 _position) {
-		Object* object = CreateProduct(_type, _position);
-		return object;
-	}
+	Object* Create(std::string _type, Vector3 _position);
 
 /**
  *  @brief Productを作成する純粋仮想関数
@@ -38,15 +35,11 @@ public:
 
 };
 
-class ItemStationeryFactory : public C_ITEM_FACTORY
+class ItemStationeryFactory : public CItemFactory
 {
 public:
 /**
  * @brief Productを作成する関数
  */
-	Object* CreateProduct(std::string _type, Vector3 _position) override
-	{
-		if (_type == "アイテム") { return new C_ITEM_BOOK(_position); }
-		ASSERT(FALSE && !"アイテムの名前が違う!");
-	}
+	Object* CreateProduct(std::string _type, Vector3 _position);
 };

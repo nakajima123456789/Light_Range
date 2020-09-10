@@ -63,5 +63,7 @@ void GameMain::Draw()
 
 	SpriteBatch.End();
 
+	scene_manager->DrawEnd();
+
 	GraphicsDevice.EndScene();
 }

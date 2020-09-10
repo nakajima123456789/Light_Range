@@ -211,6 +211,12 @@
     <Filter Include="MyClass\Scene\RESULT">
       <UniqueIdentifier>{3b6ad435-1b06-4ba3-97bf-c8078138bc66}</UniqueIdentifier>
     </Filter>
+    <Filter Include="MyClass\Enemy_manager\EnemyStaker">
+      <UniqueIdentifier>{4a684bd8-978c-4e95-968d-9851407559a4}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="MyClass\Effekseer">
+      <UniqueIdentifier>{3994dc01-fc59-4791-96c9-8cbf8f01e5d5}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="GameMain.cpp">
@@ -432,6 +438,12 @@
     </ClCompile>
     <ClCompile Include="MyClass\ALL_SCENE\Result\Result.cpp">
       <Filter>MyClass\Scene\RESULT</Filter>
+    </ClCompile>
+    <ClCompile Include="MyClass\C_ENEMY_MANAGER\C_ENEMY_STAKER\EnemyStaker.cpp">
+      <Filter>MyClass\Enemy_manager\EnemyStaker</Filter>
+    </ClCompile>
+    <ClCompile Include="MyClass\C_Effekseer\CEffekseer_.cpp">
+      <Filter>MyClass\Effekseer</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -675,6 +687,12 @@
     </ClInclude>
     <ClInclude Include="MyClass\ALL_SCENE\Result\Result.h">
       <Filter>MyClass\Scene\RESULT</Filter>
+    </ClInclude>
+    <ClInclude Include="MyClass\C_ENEMY_MANAGER\C_ENEMY_STAKER\EnemyStaker.h">
+      <Filter>MyClass\Enemy_manager\EnemyStaker</Filter>
+    </ClInclude>
+    <ClInclude Include="MyClass\C_Effekseer\CEffekseer_.h">
+      <Filter>MyClass\Effekseer</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

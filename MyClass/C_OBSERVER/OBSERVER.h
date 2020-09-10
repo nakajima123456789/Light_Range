@@ -8,8 +8,7 @@ public:
 	// 仮想 デストラクタ
 	virtual ~OBSERVERLISTENER() {}
 	// 衝突判定した
-	virtual void OnCollision() = 0;
-
+	virtual void OnCollision()     = 0;
 	virtual void ItemOnCollision() = 0;
 };
 
@@ -18,40 +17,17 @@ class OBSERVER
 {
 public:
 	// 観測者の登録 
-	void addListener(OBSERVERLISTENER* listener)    { listeners_.push_back(listener); };
-	void removeListener(OBSERVERLISTENER* listener) { listeners_.remove(listener); };
+	void addListener(OBSERVERLISTENER* listener);
+	void removeListener(OBSERVERLISTENER* listener);
 
 	// 衝突判定した
-	void IsCollision(){
-		// 衝突判定したことを観測者に通知 
-		OnCollisionNotify();
-	}
-
-	void ItemIsCollision()
-	{
-		ItemOnCollisionNotify();
-	}
+	void IsCollision();
+	void ItemIsCollision();
 
 private:
 	// 観測者に通知 
-	void OnCollisionNotify()
-	{
-		//  衝突判定したことを観測者に通知 
-		for (auto listener : listeners_) 
-		{ 
-			listener->OnCollision();
-		}
-	}
-
-	void ItemOnCollisionNotify()
-	{
-		//  衝突判定したことを観測者に通知 
-		for (auto listener : listeners_)
-		{
-			listener->ItemOnCollision();
-		}
-	}
+	void OnCollisionNotify();
+	void ItemOnCollisionNotify();
 
 	static std::list<OBSERVERLISTENER*> listeners_;
 };
-

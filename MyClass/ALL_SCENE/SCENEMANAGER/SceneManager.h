@@ -17,6 +17,7 @@ public:
 	static void Draw3D();
 	static void Draw2D();
 	static void DrawAlpha3D();
+	static void DrawEnd();
 
 	static BaseScene *m_pScene;
 

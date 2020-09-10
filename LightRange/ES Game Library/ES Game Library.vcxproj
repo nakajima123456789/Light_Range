@@ -123,12 +123,12 @@
       <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">true</ExcludedFromBuild>
     </ClCompile>
     <ClCompile Include="Extension\Effekseer\Effekseer.cpp">
-      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">true</ExcludedFromBuild>
-      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">false</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">false</ExcludedFromBuild>
     </ClCompile>
     <ClCompile Include="Extension\Effekseer\EffekseerEffect.cpp">
-      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">true</ExcludedFromBuild>
-      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">false</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">false</ExcludedFromBuild>
     </ClCompile>
     <ClCompile Include="Extension\Kinect\Kinect.cpp">
       <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">true</ExcludedFromBuild>
@@ -173,9 +173,11 @@
     <ClCompile Include="MyClass\C _UGUI\UGUI.cpp" />
     <ClCompile Include="MyClass\C_CAMERA\C_CAMERA.cpp" />
     <ClCompile Include="MyClass\C_Distance\C_DIS.cpp" />
+    <ClCompile Include="MyClass\C_Effekseer\CEffekseer_.cpp" />
     <ClCompile Include="MyClass\C_ENEMY_FACTORY\C_ENEMY_FACTORY.cpp" />
     <ClCompile Include="MyClass\C_ENEMY_MANAGER\C_ENEMY_BASE\C_ENEMY_BASE.cpp" />
     <ClCompile Include="MyClass\C_ENEMY_MANAGER\C_ENEMY_SEARCH\C_ENEMY_SEARCH.cpp" />
+    <ClCompile Include="MyClass\C_ENEMY_MANAGER\C_ENEMY_STAKER\EnemyStaker.cpp" />
     <ClCompile Include="MyClass\C_ENEMY_MANAGER\C_ENEMY_WANDER\C_ENEMY_WANDER.cpp" />
     <ClCompile Include="MyClass\c_Hitbox\HitBox.cpp" />
     <ClCompile Include="MyClass\C_Information\Information.cpp" />
@@ -253,9 +255,11 @@
     <ClInclude Include="MyClass\C _UGUI\UGUI.h" />
     <ClInclude Include="MyClass\C_CAMERA\C_CAMERA.h" />
     <ClInclude Include="MyClass\C_Distance\C_DIS.h" />
+    <ClInclude Include="MyClass\C_Effekseer\CEffekseer_.h" />
     <ClInclude Include="MyClass\C_ENEMY_FACTORY\C_ENEMY_FACTORY.h" />
     <ClInclude Include="MyClass\C_ENEMY_MANAGER\C_ENEMY_BASE\C_ENEMY_BASE.h" />
     <ClInclude Include="MyClass\C_ENEMY_MANAGER\C_ENEMY_SEARCH\C_ENEMY_SEARCH.h" />
+    <ClInclude Include="MyClass\C_ENEMY_MANAGER\C_ENEMY_STAKER\EnemyStaker.h" />
     <ClInclude Include="MyClass\C_ENEMY_MANAGER\C_ENEMY_WANDER\C_ENEMY_WANDER.h" />
     <ClInclude Include="MyClass\C_FONT\C_FONT.h" />
     <ClInclude Include="MyClass\c_Hitbox\HitBox.h" />

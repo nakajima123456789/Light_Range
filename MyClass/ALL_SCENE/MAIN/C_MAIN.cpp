@@ -14,27 +14,30 @@
 
 #include "../../C_Information/Information.h"
 
+#include "../../C_Effekseer/CEffekseer_.h"
+
 void C_MAIN::Initialize(){
 
-	auto c_camera = (new C_CAMERA);
+	auto c_camera = (new CCamera_);
 	_objectroot.AddList((ChildObjRef)c_camera);
+
 	CShaderAnimation::CameraSetting(*c_camera);
 
 	auto&& c_map = (new MAP_MANAGER);
 	_objectroot.AddList((ChildObjRef)c_map);
 
 	auto&& c_player = (new CPlayer(c_map->GetCharacterPos()[CHARACTER_TYPE_PLAYER][IS_CHARACTER_ONCE]));
-	c_camera->Get_Other_Tranceform(&c_player->transform);
+	c_camera->GetPlayerTranceform(&c_player->transform);
 	_objectroot.AddList((ChildObjRef)c_player);
 
 	c_map->player_animation_model = &c_player->player_model;
 	c_player->map_manager = (c_map);
 
 	auto&& c_ugul = (new UGUI);
-	c_ugul->set_item_size(c_map->GetCharacterPos()[CHARACTER_TYPE_ITEM].size());
+	c_ugul->GetItemSize(c_map->GetCharacterPos()[CHARACTER_TYPE_ITEM].size());
 	_objectroot.AddList((ChildObjRef)c_ugul);
 
-	C_ITEM_FACTORY* c_item_factory = new ItemStationeryFactory();
+	CItemFactory* c_item_factory = new ItemStationeryFactory();
 
 	for (int i = 0; i < c_map->GetCharacterPos()[CHARACTER_TYPE_ITEM].size(); i++)
 	{
@@ -45,7 +48,7 @@ void C_MAIN::Initialize(){
 	delete c_item_factory;
 	c_item_factory = 0;
 
-	C_ENEMY_FACTORY* c_enemy_factory = new EnemyStationeryFactory();
+	EnemyFactory* c_enemy_factory = new EnemyStationeryFactory();
 
 	if (c_map->GetWanderingRoutePosition().size() != 0)
 	{
@@ -63,14 +66,10 @@ void C_MAIN::Initialize(){
 		_objectroot.AddList((ChildObjRef)c_enemy_search_w);
 	}
 
-	enemy_card = c_enemy_factory->Create("íTçıìGëÅ", Vector3(2.0f, 0.0f, -2.0f));
-
 	delete c_enemy_factory;
 	c_enemy_factory = 0;
 
-	C_ENEMY_BASE::Set_Player_position(&c_player->transform.position);
-
-	appearance_se = SNDMANAGER.LoadSE(_T("SE//SE//ìGèoåª.wav"), 3);
+	CEnemyBase::Set_Player_position(&c_player->transform.position);
 
 	SNDMANAGER.LoadBGM(_T("SE//SE//ÉQÅ[ÉÄíÜBGM.wav"));
 }
@@ -100,26 +99,28 @@ void C_MAIN::Update(){
 	SNDMANAGER.PlayBGM();
 
 	if (Information::Ui_Information::game_over_flag)  { SceneManager::ChangeScene(SceneManager::GAME_OVER);}
+
 	if (Information::Ui_Information::game_clear_flag) { SceneManager::ChangeScene(SceneManager::GAME_CLEAR);};
-
-	if (É¢t % (60 * 20) == 0)
-	{
-		SNDMANAGER.PlaySE(appearance_se);
-		Information::Ui_Information::obsever_enemy_flag = true;
-		_objectroot.AddList((ChildObjRef)enemy_card);
-
-	}É¢t++;
-
 }
-void C_MAIN::Draw3D(){
+void C_MAIN::Draw3D()
+{
 	_objectroot.Draw3D();
 }
-void C_MAIN::Draw2D(){
+void C_MAIN::Draw2D()
+{
 	_objectroot.Draw2D();
 }
-void C_MAIN::DrawAlpha3D() {
+void C_MAIN::DrawAlpha3D() 
+{
 	GraphicsDevice.BeginAlphaBlend();
+
 	_objectroot.DrawAlpha3D();
+
 	GraphicsDevice.EndAlphaBlend();
 };
+
+void C_MAIN::DrawEnd()
+{
+	_objectroot.DrawEnd();
+}
 

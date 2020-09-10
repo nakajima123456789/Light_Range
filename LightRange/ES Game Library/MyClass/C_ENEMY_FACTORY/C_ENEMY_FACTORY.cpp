@@ -16,7 +16,7 @@ Object* EnemyStationeryFactory::CreateProduct(std::string _type, Vector3 _positi
 {
 	if (_type == "’Tõ“G‘") {
 		set_enemy_serch_data.AdvanceTime = 30;
-		set_enemy_serch_data.speed = 0.035f;
+		set_enemy_serch_data.speed = 0.030f;
 		set_enemy_serch_data.pos = _position;
 		set_enemy_serch_data.model_type = 1;
 		return new CEnemySearch(set_enemy_serch_data);

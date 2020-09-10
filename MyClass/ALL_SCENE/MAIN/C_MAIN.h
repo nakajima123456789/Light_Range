@@ -13,12 +13,9 @@ public:
 	virtual void Draw3D()     override;
 	virtual void Draw2D()     override;
 	virtual void DrawAlpha3D()override;
+	virtual void DrawEnd() override;
 
 private:
 	ObjectManager _objectroot;
-	Object* enemy_card;
 
-	int ƒ¢t = 1;
-	int appearance_se;
 };
-

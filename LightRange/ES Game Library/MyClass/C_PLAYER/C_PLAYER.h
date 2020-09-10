@@ -36,6 +36,12 @@ public:
 	virtual void CPlayer::DrawAlpha3D() override { return; };
 	virtual void CPlayer::Draw2D()      override { return; };
 
+	virtual void CPlayer::ChildUpdate()          override;
+	virtual void CPlayer::ChildDraw2D()          override { return; };
+	virtual void CPlayer::ChildDraw3D()          override;
+	virtual void CPlayer::ChildDrawAlpha3D()     override { return; };
+	virtual void CPlayer::ChildDrawEnd()         override { return; };
+
 	void CPlayer::GetHitBoxPosition(Vector3 _position);
 
 	MAP_MANAGER*    map_manager;
@@ -114,7 +120,7 @@ private:
 private:
 
 	//‰e•`‰æ
-	inline Matrix Create_Shadow_Matrix(const D3DLIGHTTYPE light_type, const Vector3& light,const Vector3& pos, const Vector3& shadow_offset,const Vector3& normal);
+	inline Matrix Create_Shadow(const D3DLIGHTTYPE light_type, const Vector3& light,const Vector3& pos, const Vector3& shadow_offset,const Vector3& normal);
 
 	std::shared_ptr <HitBox> c_hitbox;
 	std::shared_ptr <CDis>   c_dis;
@@ -126,9 +132,11 @@ private:
 
 	Vector3 speed_vectol = Vector3_Zero;
 
-	int this_track_enable = 0;
+	int player_state = 0;
 
-	int se_i;
+	int se;
+
+	std::vector<ANIMATIONMODEL> accessory_model;
 };
 
 

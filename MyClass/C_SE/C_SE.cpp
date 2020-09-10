@@ -19,6 +19,8 @@ int C_SE::LoadSE(TCHAR* filename, const UINT multiple)
 	SoundDevice.CreateSharedSoundFromFile(filename, &se_vec[0], multiple, false);
 	se.push_back(se_vec);
 
+	volume.resize(se.size());
+
 	return se.size() - 1;
 }
 
@@ -62,7 +64,29 @@ int C_SE::LoadLopeSE(TCHAR* filename)
 
 bool C_SE::IsSeVolume(int _set_number)
 {
-	if (LopeSE[_set_number]->GetVolume() <= 0){ return true; } else return false;
+	if (LopeSE[_set_number]->GetVolume() <= 0)
+	{ 
+		return true; 
+	} 
+	else return false;
 }
 
+void  C_SE::DistanceSeV(float _dis, float _min_dis, int _number)
+{
+	if (_dis < _min_dis)
+	{
+		SNDMANAGER.volume[_number] = 1.0f;
+		SNDMANAGER.PlayLopeSE(_number);
+	}
+	else {
+		clamp(SNDMANAGER.volume[_number] -= 0.005, 0.0f, 1.0f);
+		if(SNDMANAGER.volume[_number] <= 0.1f){ SNDMANAGER.StopLopeSE(_number);}
+	};
+	SNDMANAGER.GetLopeSE()[_number]->SetVolume(SNDMANAGER.volume[_number]);
+}
 
+int C_SE::clamp(int x, int low, int high)
+{
+	ASSERT(low <= high && "Å¬’l <= Å‘å’l");
+	return min(max(x, low), high);
+}

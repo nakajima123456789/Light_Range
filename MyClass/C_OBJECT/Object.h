@@ -87,17 +87,20 @@ public:
 	void ChildObj_AddList(ChildObjRef& c);
 
 	//子オブジェクトの更新
-	void ChildUpdate();
+	virtual void ChildUpdate();
 
 	//描画
 	virtual void Draw2D() {};
 	virtual void Draw3D() {};
 	virtual void DrawAlpha3D() {};
+	virtual void DrawEnd() {};
+
 	
 	//子の描画
 	virtual void ChildDraw2D();
 	virtual void ChildDraw3D();
 	virtual void ChildDrawAlpha3D();
+	virtual void ChildDrawEnd();
 
 	//消去
 	virtual void Remove();
@@ -145,6 +148,8 @@ public:
 	virtual void Draw2D();
 	virtual void Draw3D();
 	virtual void DrawAlpha3D();
+
+	virtual void DrawEnd();
 
 	//子オブジェクトリストに挿入
 	void AddList(ChildObjRef& c);

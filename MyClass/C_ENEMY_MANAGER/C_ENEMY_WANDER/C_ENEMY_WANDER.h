@@ -1,40 +1,39 @@
 #pragma once
 #include "../C_ENEMY_BASE/C_ENEMY_BASE.h"
-#include "../../C_HITBOX/HitBox.h"
 
-class ENEMYWANDERSTATEPROCESSOR;
-class C_ENEMY_WANDER;
+class EnemyWanderStateProcessor;
+class CEnemyWander;
 
-class ENEMYWANDERSTATEPROCESSOR : public  StateProcessor {
+class EnemyWanderStateProcessor : public  StateProcessor {
 public:
-	C_ENEMY_WANDER* c_enemy_wander;
+	CEnemyWander* c_enemy_wander;
 };
 
-class C_ENEMY_WANDER : public C_ENEMY_BASE
+class CEnemyWander : public CEnemyBase
 {
 public:
-	C_ENEMY_WANDER(std::map<int, Vector3> _get_root_position);
+	CEnemyWander(std::map<int, Vector3> _get_root_position);
 
-	virtual ~C_ENEMY_WANDER();
+	virtual ~CEnemyWander();
 
-	ENEMYWANDERSTATEPROCESSOR enemywanderstateprocessor;
+	EnemyWanderStateProcessor enemywanderstateprocessor;
 
-	virtual void C_ENEMY_WANDER::Init()        override;
-	virtual void C_ENEMY_WANDER::Update()      override;
-	virtual void C_ENEMY_WANDER::Draw3D()      override;
+	virtual void CEnemyWander::Init()        override;
+	virtual void CEnemyWander::Update()      override;
+	virtual void CEnemyWander::Draw3D()      override;
 													   
-	virtual void C_ENEMY_WANDER::DrawAlpha3D() override;
-	virtual void C_ENEMY_WANDER::Draw2D()      override { return; };
+	virtual void CEnemyWander::DrawAlpha3D() override;
+	virtual void CEnemyWander::Draw2D()      override { return; };
 
 	class IDOL : public State
 	{
 	private:
-		ENEMYWANDERSTATEPROCESSOR* _owner;
+		EnemyWanderStateProcessor* _owner;
 
 		int root_number = 0;
 
 	public:
-		IDOL(ENEMYWANDERSTATEPROCESSOR* owner) : _owner(owner) { };
+		IDOL(EnemyWanderStateProcessor* owner) : _owner(owner) { };
 		virtual ~IDOL() {};
 
 		virtual int    CancelLv() { return INT_MAX; };
@@ -46,9 +45,9 @@ public:
 	class RUN : public State
 	{
 	private:
-		ENEMYWANDERSTATEPROCESSOR* _owner;
+		EnemyWanderStateProcessor* _owner;
 	public:
-		RUN(ENEMYWANDERSTATEPROCESSOR* owner) : _owner(owner) {}
+		RUN(EnemyWanderStateProcessor* owner) : _owner(owner) {}
 		virtual ~RUN() {}
 
 		virtual int    CancelLv() { return INT_MAX; };
@@ -60,11 +59,8 @@ public:
 private:
 
 	//ïœêîêÈåæ
-
 	std::map<int, Vector3> map_root_pos;
 	std::shared_ptr <HitBox> hitbox;
-
-	enum {INITIALIZE_POS,};
 
 	//ä÷êîêÈåæ
 };

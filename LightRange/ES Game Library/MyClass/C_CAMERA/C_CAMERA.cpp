@@ -1,5 +1,7 @@
 #include "C_CAMERA.h"
 #include "../C_FONT/C_FONT.h"
+#include "../C_Effekseer/CEffekseer_.h"
+#include "../C_INPUT/C_INPUT.h"
 
 void CCamera_::Init()
 {
@@ -23,12 +25,21 @@ void CCamera_::Update()
 {
 	pos = player_transform->position;
     camera.SetLookAt(pos + Vector3(0, 5.5, -1.0), pos + Vector3(0, 1, 0), Vector3_Up);
-	GraphicsDevice.SetCamera(camera);
+
+	EffekseerMgr.Update();
 }
+
+void CCamera_::DrawEnd()
+{
+	GraphicsDevice.SetCamera(camera);
+	EffekseerMgr.Draw(camera);
+}
+;
 
 void CCamera_::GetPlayerTranceform(Transform* _player_transform)
 {
 	player_transform = _player_transform;
+
 }
 
 

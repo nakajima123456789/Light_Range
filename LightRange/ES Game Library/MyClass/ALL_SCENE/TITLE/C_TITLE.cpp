@@ -10,7 +10,7 @@ void C_TITLE::Initialize()
 
 void C_TITLE::Update()
 {
-	if (Input.GetPadInputDown(0)){SceneManager::ChangeScene(SceneManager::RESULT);}
+	if (Input.GetPadInputDown(11)){SceneManager::ChangeScene(SceneManager::RESULT);}
 }
 
 void C_TITLE::Draw2D()
@@ -23,7 +23,3 @@ void C_TITLE::Add_Sprite(LPCTSTR _sprite_name)
 	sprite = GraphicsDevice.CreateSpriteFromFile(_sprite_name);
 	sprite_list_name.push_back(sprite);
 }
-
-
-
-

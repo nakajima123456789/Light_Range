@@ -6,21 +6,23 @@ C_INPUT::C_INPUT()
 }
 C_INPUT::~C_INPUT() {  }
 
+//Keyの左右上下の値を取得する事が出来る
 Vector3 C_INPUT::GetArrowkeyVector()
 {
 	Vector3 result = Vector3_Zero;
-	if (GetKeyState().IsKeyDown(Keys_Left)) 
-	{ result += Vector3_Left; }
-	else { if (GetKeyState().IsKeyDown(Keys_Right)) 
-	{ result += Vector3_Right; } }
+	if (GetKeyState().IsKeyDown(Keys_Left))      { result += Vector3_Left; }
+    else {
+		if (GetKeyState().IsKeyDown(Keys_Right)) { result += Vector3_Right;}
+	}
 
-	if (GetKeyState().IsKeyDown(Keys_Up)) 
-	{ result += Vector3_Up; }
-	else { if (GetKeyState().IsKeyDown(Keys_Down))
-	{ result += Vector3_Down; } }
+	if (GetKeyState().IsKeyDown(Keys_Up))        { result += Vector3_Up;   }
+	else { 
+		if (GetKeyState().IsKeyDown(Keys_Down))  { result += Vector3_Down; }
+	}
 	return result;
 }
 
+//ステックを傾けた時の値を返す　斜め45度にした時大きさが1.414なるのも対策
 Vector3 C_INPUT::GetArrowpadVector()
 {
 	Vector3 result = Vector3_Zero;
@@ -39,6 +41,7 @@ Vector3 C_INPUT::GetArrowpadVector()
 	return result;
 }
 
+//上の関数のノーマライズ版	
 Vector3 C_INPUT::GetArrowpadVectorNomalize()
 {
 	Vector3 result = Vector3_Zero;
@@ -51,44 +54,52 @@ Vector3 C_INPUT::GetArrowpadVectorNomalize()
 	return result_nomalize;
 }
 
+//引数に与えられたコントローラー番号を押した時の処理
 bool C_INPUT::GetPadInputDown(int KeyID)
 {
 	return (BOOL)GetGamePadBuffer().IsPressed(buttom_manager[KeyID]);
 }
 
+//引数に与えられたコントローラー番号を押し続けた時の処理
 bool C_INPUT::GetPadInput(int KeyID)
 {
 	return (BOOL)GetGamePadState().Buttons[KeyID] != 0;
 }
 
+//引数に与えられたキーボードを押した時の処理
 bool C_INPUT::GetKeyInputDown(int keyID)//buffer
 {
 	return (BOOL)GetKeyBuffer().IsPressed(keyID);
 }
 
+//X座標のステックを倒したかどうか。
 double C_INPUT::AxisStateX()
 {
 	double axis_x = (double)GetGamePadState().X / (double)Axis_Max;
 	return axis_x != 0 ? axis_x : FALSE;
 }
 
+//Y座標のステックを倒したかどうか。
 double  C_INPUT::AxisStateY()
 {
 	double axis_y = (double)GetGamePadState().Y / (double)Axis_Min;
 	return axis_y != 0 ? axis_y : FALSE;
 }
 
+//X座標とY座標が少しでも倒されていたらtrueを返す
 bool C_INPUT::AxisFlag()
 {
 	return AxisStateX() == 0 && AxisStateY() == 0 ? FALSE : TRUE;
 }
 
+//ステックを倒した時の角度
 float C_INPUT::PadKeyAngle()
 {
 	angle = MathHelper_Atan2(AxisStateX(), AxisStateY());
 	return angle;
 }
 
+//GamePadを登録する
 void C_INPUT::BufferButtomSetInit(int button, int buttonid)
 {
 	buttom_manager[button] = buttonid;

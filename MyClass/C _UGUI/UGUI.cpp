@@ -24,21 +24,21 @@ void UGUI::Init()
 	cover_image   = add_sprite(_T("SPRITE//固定カバー.png"));
 	gage_pt_image = add_sprite(_T("SPRITE//PH.png"));
 	gage_sp_image = add_sprite(_T("SPRITE//SP.png"));
-	obsever_enemy_image = add_sprite(_T("SPRITE//敵出現通知.png"));
 }
+
+//画像追加関数
 int UGUI::add_sprite(LPCTSTR _sprite_name)
 {
 	SPRITE new_sprite = GraphicsDevice.CreateSpriteFromFile(_sprite_name);
 	IDirect3DTexture9* texture = *new_sprite;
 	ASSERT(texture != nullptr && "画像が見つからない!");
 	sprite.push_back(new_sprite);
-
 	return (sprite.size() - 1);
 }
 
 void UGUI::Update()
 {
-	if (Input.GetPadInput(0) && Information::Player_Information::player_state != 1){ gage_sp_image_index -= 2;}
+	if (Input.GetPadInput(0) && Information::Player_Information::player_state != 1){ gage_sp_image_index -= 1;}
 	else { gage_sp_image_index++; };
 
 	gage_sp_image_index = clamp(gage_sp_image_index, 0, 407);
@@ -55,18 +55,21 @@ void UGUI::OnCollision()
 //PLAYERとITEMとが衝突したら呼ばれる関数
 void UGUI::ItemOnCollision()
 {
+	//割合計算
 	auto&& point_calculation = [](double a, double b) { return a / b; };
+
 	double item_point = point_calculation(427.f, item_size);
+
 	gage_index = gage_index + item_point;
 }
 
 void UGUI::Draw2D()
 {
-	SpriteBatch.Draw(*sprite[gage_pt_image], Vector3(127, 80, -SpriteBatch_BottomMost),RectWH(0, 0, gage_index, 20));
-
+	SpriteBatch.Draw(*sprite[gage_pt_image], Vector3(127, 80, -SpriteBatch_BottomMost), RectWH(0, 0, gage_index, 20));
 	SpriteBatch.Draw(*sprite[gage_sp_image], Vector3(127, 97, -SpriteBatch_BottomMost), RectWH(0, 0, gage_sp_image_index, 20));
 	SpriteBatch.Draw(*sprite[cover_image],   Vector3(0.0f, 0, -SpriteBatch_BottomMost));
 
+	//クリアしたときまたわゲームオーバーの時フェードアウトする。
 	if (red_image_flag == TRUE || gage_index >= 427.f)
 	{
 		feed_out_index += 0.05;
@@ -74,25 +77,9 @@ void UGUI::Draw2D()
 		if (feed_out_index >= 1.0) 
 		{
 			feed_out_index = 0.f;
-			if (red_image_flag == TRUE) {
-				   Information::Ui_Information::game_over_flag = true;
-			}
-			else { Information::Ui_Information::game_clear_flag = true;
-			}
+			red_image_flag == TRUE ? Information::Ui_Information::game_over_flag = true : Information::Ui_Information::game_clear_flag = true;
 		}
 	}
-
-	if (Information::Ui_Information::obsever_enemy_flag)
-	{
-		obsever_enemy_image_index -= 0.005;
-		if (obsever_enemy_image_index <= 0.0f)
-		{
-			Information::Ui_Information::obsever_enemy_flag = false;
-			obsever_enemy_image_index = 1.0f;
-		}
-		else{SpriteBatch.Draw(*sprite[obsever_enemy_image], Vector3(0, 0, -SpriteBatch_BottomMost), obsever_enemy_image_index);}
-	}
-
 }
 
 int UGUI::clamp(int x, int low, int high)

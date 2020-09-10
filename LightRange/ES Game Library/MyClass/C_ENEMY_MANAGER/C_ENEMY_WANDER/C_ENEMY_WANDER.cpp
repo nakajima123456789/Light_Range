@@ -13,9 +13,11 @@ void CEnemyWander::Init()
 	animation_model = GraphicsDevice.CreateAnimationModelFromFile((_T("MODEL//enemy_motion//enemy_large.x")));
 	animation_model->SetMaterial(SetMaterial(Color(0.5f, 0.5f, 0.5)));
 
+
 	ShaderInit(_T("MODEL//enemy_motion/lambert1_2D_View.png"));
 
 	IsHitObjectsInit("enemy");
+	 IsDistanceInit("enemy");
 };
 
 CEnemyWander::~CEnemyWander()
@@ -27,6 +29,8 @@ void CEnemyWander::Update()
 {
 	SetPlayerState(ANIMATION_STATE::RUN);
 	ShaderAlphaDraw();
+
+	IsDistanceUpdate(animation_model->GetPosition());
 
 	enemywanderstateprocessor.Update();
 };
@@ -54,7 +58,7 @@ void CEnemyWander::Draw3D()
 {
 	animation_model->SetPosition((this->transform.position));
 	animation_model->SetRotation(this->transform.rotation);
-	animation_model->SetScale(this->transform.scale);
+	animation_model->SetScale(this->transform.scale * 1.4);
 	animation_model->AdvanceTime(1.0 / 120);
 
 	IsHitObjectsDraw(this->transform.position);

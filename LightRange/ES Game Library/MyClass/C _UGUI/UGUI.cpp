@@ -38,7 +38,7 @@ int UGUI::add_sprite(LPCTSTR _sprite_name)
 
 void UGUI::Update()
 {
-	if (Input.GetPadInput(0) && Information::Player_Information::player_state != 1){ gage_sp_image_index -= 2;}
+	if (Input.GetPadInput(0) && Information::Player_Information::player_state != 1){ gage_sp_image_index -= 1;}
 	else { gage_sp_image_index++; };
 
 	gage_sp_image_index = clamp(gage_sp_image_index, 0, 407);
@@ -77,10 +77,7 @@ void UGUI::Draw2D()
 		if (feed_out_index >= 1.0) 
 		{
 			feed_out_index = 0.f;
-			if (red_image_flag == TRUE) 
-				   Information::Ui_Information::game_over_flag  = true;
-			else 
-				   Information::Ui_Information::game_clear_flag = true;
+			red_image_flag == TRUE ? Information::Ui_Information::game_over_flag = true : Information::Ui_Information::game_clear_flag = true;
 		}
 	}
 }

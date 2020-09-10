@@ -31,21 +31,16 @@ public:
 	//Õ“Ë‚µ‚Ä‚¢‚éHitBox‚ÌƒŠƒXƒg‚ğæ“¾
 	std::list<HitBox*> HitBox::HitHitBoxlist();
 
-	void Settags(string tags);
-
-	void SetColor(Vector3 colors);
-
-	void HitBoxMove(Vector3 move);
+	void    Settags(string tags);
+	void    SetColor(Vector3 colors);
+	void    HitBoxMove(Vector3 move);
 
 	Vector3 GetHitBoxPosition()const { return _model->GetPosition(); };
 
 	HitBox* HitBox::TypeRayRange(std::string tag, Vector3 position, Vector3 angle, float& range);
-
 	HitBox* HitBox::Get_Tag_HitBox(std::string tag);
-
-	MODEL HitBox::Get_Tag_Model() const { return _model; };
-
-	bool HitBox::Tag_Sarch(string _tag);
+	MODEL   HitBox::Get_Tag_Model() const { return _model; };
+	bool    HitBox::Tag_Sarch(string _tag);
 
 	string tag;
 private:
@@ -61,7 +56,7 @@ private:
 	float _depth = 1.0f;
 
 	Vector3 position;
-	Vector3   scale;
+	Vector3    scale;
 
 	Vector3 color = Vector3(1.0f, 0.0f, 0.0f);
 

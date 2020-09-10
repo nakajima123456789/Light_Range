@@ -11,7 +11,7 @@ void C_GAME_OVER::Initialize()
 
 void C_GAME_OVER::Update()
 {
-	if (Input.GetPadInputDown(0))
+	if (Input.GetPadInputDown(11))
 	{
 		SceneManager::ChangeScene(SceneManager::TITLE);
 		return;

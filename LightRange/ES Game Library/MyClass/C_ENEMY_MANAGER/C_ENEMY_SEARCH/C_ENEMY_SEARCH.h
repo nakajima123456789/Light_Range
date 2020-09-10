@@ -68,4 +68,5 @@ private:
 	Astar nav_mesh;
 	//初期ステータス設定
 	EnemyData enemy_date;
+
 };

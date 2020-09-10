@@ -13,8 +13,9 @@ public:
 	virtual void Draw3D()     override;
 	virtual void Draw2D()     override;
 	virtual void DrawAlpha3D()override;
+	virtual void DrawEnd() override;
 
 private:
 	ObjectManager _objectroot;
-};
 
+};

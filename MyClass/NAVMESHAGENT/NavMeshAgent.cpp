@@ -1,6 +1,6 @@
 ﻿#include "NavMeshAgent.h"
 
-NavMeshAgent::NavMeshAgent()
+Astar::Astar()
 {
 	// ファイルを開く //マップデータ取得
 	FILE* fp = fopen("File//MAP.txt", "r");
@@ -23,13 +23,13 @@ NavMeshAgent::NavMeshAgent()
 };
 
 
-void NavMeshAgent::Update(Vector3 _player_position, ANIMATIONMODEL& _animation_model,double _speed)
+void Astar::Update(Vector3 _player_position, ANIMATIONMODEL& _animation_model,double _speed)
 {
 	animation_model = _animation_model;
 
 	enemy_pos = animation_model->GetPosition();
 
-	//座標が一つずれているので+-1をし補正 / 2をする事により二次元配列でどの場所にいるかに変換する　mzの-は3Dの世界ではしたになるので
+	//座標が一つずれているので+-1をし補正 / 2をする事により二次元配列でどの場所にいるかに変換する　mzの-は3Dの世界では下になるので
 	int mx =  ((int)enemy_pos.x + 1) / 2;
 	int mz = -((int)enemy_pos.z - 1) / 2;
 	int px =  ((int)_player_position.x + 1) / 2;
@@ -78,7 +78,7 @@ void NavMeshAgent::Update(Vector3 _player_position, ANIMATIONMODEL& _animation_m
 	}
 }
 
-void NavMeshAgent::findChar(TCHAR c, int& sx, int& sy, int t)
+void Astar::findChar(TCHAR c, int& sx, int& sy, int t)
 {
 	for (int y = 0; y < mapdata.size(); ++y) {
 		for (int x = 0; x < mapdata[y].size(); ++x) {
@@ -92,7 +92,7 @@ void NavMeshAgent::findChar(TCHAR c, int& sx, int& sy, int t)
 }
 
 //ここではドットを打つ処理をする今ここでは空白の所だけに対し行うどんどん追加していく
-void NavMeshAgent::findRouteSub(int cx, int cy, int d, int t)
+void Astar::findRouteSub(int cx, int cy, int d, int t)
 {
 	if (d < route[cy][cx]) {
 		route[cy][cx] = d;
@@ -112,7 +112,7 @@ void NavMeshAgent::findRouteSub(int cx, int cy, int d, int t)
 	}
 }
 
-void NavMeshAgent::findRoute(int t)
+void Astar::findRoute(int t)
 {
 	for (int i = 0; i < mapdata.size(); ++i) {
 		UINT u = mapdata[i].size();
@@ -125,7 +125,7 @@ void NavMeshAgent::findRoute(int t)
 	findRouteSub(sx, sy, 0, t);
 }
 
-void NavMeshAgent::updateMap(int t)
+void Astar::updateMap(int t)
 {
 	int cx;
 	int cy;
@@ -150,7 +150,7 @@ void NavMeshAgent::updateMap(int t)
 	}
 }
 
-void NavMeshAgent::clearMap(int t)
+void Astar::clearMap(int t)
 {
 	for (int y = 0; y < mapdata.size(); y++) {
 		for (int x = 0; x < mapdata[y].size(); x++) {
@@ -163,7 +163,7 @@ void NavMeshAgent::clearMap(int t)
 
 
 //敵の操作はローカル座標で動かしているので回転で制御する
-void NavMeshAgent::animation_model_rotation(int mx, int my)
+void Astar::animation_model_rotation(int mx, int my)
 {
 	if (mapdata[my][mx + 1] == '.')
 	{
@@ -216,7 +216,7 @@ void NavMeshAgent::animation_model_rotation(int mx, int my)
 	enemy_pos.z = even_y;
 }
 
-void NavMeshAgent::else_when_process(int mx, int mz, int px, int pz)
+void Astar::else_when_process(int mx, int mz, int px, int pz)
 {
 	enemy_pos.x = mx * 2;
 	enemy_pos.z = -mz * 2;
@@ -227,7 +227,7 @@ void NavMeshAgent::else_when_process(int mx, int mz, int px, int pz)
 
 }
 
-void NavMeshAgent::right_when_process(int mx, int mz)
+void Astar::right_when_process(int mx, int mz)
 {
 	if (ex_integer % 2 == 1 && enemy_x % 2 == 0)
 	{
@@ -240,7 +240,7 @@ void NavMeshAgent::right_when_process(int mx, int mz)
 	}
 }
 
-void NavMeshAgent::front_when_process(int mx, int mz)
+void Astar::front_when_process(int mx, int mz)
 {
 	if (ez_integer % 2 == 1 && enemy_z % 2 == 0)
 	{
@@ -253,7 +253,7 @@ void NavMeshAgent::front_when_process(int mx, int mz)
 	}
 }
 
-void NavMeshAgent::back_when_process(int mx, int mz)
+void Astar::back_when_process(int mx, int mz)
 {
 	if (ez_integer % 2 == 0 && enemy_z % 2 == 1)
 	{
@@ -266,7 +266,7 @@ void NavMeshAgent::back_when_process(int mx, int mz)
 	}
 }
 
-void NavMeshAgent::left_when_process(int mx, int mz)
+void Astar::left_when_process(int mx, int mz)
 {
 	if (ex_integer % 2 == 0 && enemy_x % 2 == 1)
 	{
@@ -279,7 +279,7 @@ void NavMeshAgent::left_when_process(int mx, int mz)
 	}
 }
 //ルートの再計算の処理
-void NavMeshAgent::route_recalculation(int mx, int mz, int px, int pz)
+void Astar::route_recalculation(int mx, int mz, int px, int pz)
 {
 	//マップクリア	
 	clearMap(0);

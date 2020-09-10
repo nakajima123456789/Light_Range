@@ -8,7 +8,7 @@ void GAEM_CLEAR::Initialize()
 
 void GAEM_CLEAR::Update()
 {
-	if (Input.GetPadInputDown(0))
+	if (Input.GetPadInputDown(11))
 	{
 		SceneManager::ChangeScene(SceneManager::TITLE);
 		return;

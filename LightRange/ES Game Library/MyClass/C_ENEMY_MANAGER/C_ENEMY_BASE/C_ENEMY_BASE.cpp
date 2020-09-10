@@ -117,7 +117,7 @@ void CEnemyBase::ShaderAlphaDraw()
 	Vector3 enemy_pos  = this->animation_model->GetPosition();
 	Vector3 target_pos = (*player_pos);
 
-	float v_dis = 2.0f;
+	float v_dis = 1.8f;
 	float add_alpha = 0.05f;
 
 	if ((enemy_pos.x - target_pos.x) * (enemy_pos.x - target_pos.x) + (enemy_pos.z - target_pos.z) * (enemy_pos.z - target_pos.z) <= v_dis * v_dis)
@@ -147,7 +147,7 @@ void  CEnemyBase::IsHitObjectsInit(std::string _tags)
 	hitbox->Init();
 	hitbox->Settags(_tags);
 
-	hitbox->SetHitBoxScale(1.2f);
+	hitbox->SetHitBoxScale(1.15f);
 	hitbox->SetHitBoxPosition(Vector3(2, 0, -2));
 }
 
@@ -169,4 +169,11 @@ bool CEnemyBase::IsHitObjects(std::string tags) {
 		}
 	}
 	return result;
+}
+
+bool CEnemyBase::FrameTime(int _index)
+{
+	time++;
+	if (time % _index == 0) { return true; }
+	return false;
 }

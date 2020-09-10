@@ -2,24 +2,26 @@
 #include "../../ESGLib.h"
 #include "../C_OBJECT/Object.h"
 
-class C_CAMERA : public Object
+class CCamera_ : public Object
 {
 public:
-	C_CAMERA() {};
-	virtual ~C_CAMERA() {};
+	CCamera_() {};
+	virtual ~CCamera_() {};
 	
-	virtual void C_CAMERA::Init()        override;
-	virtual void C_CAMERA::Update()      override;
-	virtual void C_CAMERA::Draw3D()      override { return; };
+	virtual void CCamera_::Init()        override;
+	virtual void CCamera_::Update()      override;
+	virtual void CCamera_::Draw3D()      override { return; };
 
-	virtual void C_CAMERA::DrawAlpha3D() override { return; };
-	virtual void C_CAMERA::Draw2D()      override { return; };
+	virtual void CCamera_::DrawAlpha3D() override { return; };
+	virtual void CCamera_::Draw2D()      override { return; };
+
+	virtual void CCamera_::DrawEnd()      override;
 
 	CAMERA  GetCamera() const { return camera; };
 	Light   GetLight()  const { return light; };
-	Vector3 GetPos()    const { return pos;    };
+	Vector3 GetPos()    const { return pos;};
 
-	void C_CAMERA::Get_Other_Tranceform(Transform* _player_transform);
+	void CCamera_::GetPlayerTranceform(Transform* _player_transform);
 
 private:
 	CAMERA  camera;

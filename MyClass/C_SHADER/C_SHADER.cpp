@@ -1,5 +1,5 @@
 #include "C_SHADER.h"
-C_CAMERA* CShaderManager::camera = nullptr;
+CCamera_* CShaderManager::camera = nullptr;
 Vector3 CShaderAnimation::animation_attenuation = Vector3(0.9f, 0.01f, 0.f);
 
 //C_SHADER_ANIMATION設定
@@ -7,9 +7,14 @@ Vector3 CShaderAnimation::animation_attenuation = Vector3(0.9f, 0.01f, 0.f);
 void CShaderAnimation::ShaderInitialize(LPCTSTR _tex_path, LPCTSTR _shader_filename)
 {
 	shader = GraphicsDevice.CreateEffectFromFile(_shader_filename);
+	ASSERT(shader != nullptr && "sharedネームが違う");
 
 	SPRITE texture = nullptr;
 	texture = GraphicsDevice.CreateSpriteFromFile(_tex_path);
+
+	IDirect3DTexture9* texture_assert = *texture;
+	ASSERT(texture_assert != nullptr && "モデルのテクスチャの名前が違う");
+
 	shader->SetTexture("modelTex", *texture);
 	shader->SetParameter("light_diffuse", camera->GetLight().Diffuse);
 	shader->SetParameter("light_ambient", camera->GetLight().Ambient);
@@ -25,6 +30,8 @@ void CShaderAnimation::ShaderInitialize(LPCTSTR _tex_path, LPCTSTR _shader_filen
 }
 
 EFFECT CShaderAnimation::ShaderDraw(float& alpha) {
+	ASSERT(alpha <= 1.0f && "alphaの値は1未満");
+
 	shader->SetTechnique("ANIME");
 	shader->SetParameter("light_pos", camera->GetPos() + light_pos_correction);
 	shader->SetParameter("cam_pos", camera->GetCamera().GetPosition());
@@ -78,9 +85,9 @@ void CShaderModel::ShaderInitialize(LPCTSTR tex_path, LPCTSTR _shader_filename)
 
 EFFECT CShaderModel::ShaderDraw(float& alpha)
 {
+	ASSERT(alpha <= 1.0f && "alphaの値は1未満");
 	shader->SetTechnique("MODEL");
 	shader->SetParameter("light_pos", camera->GetPos() + light_pos_correction);
-
 	shader->SetParameter("cam_pos", camera->GetCamera().GetPosition());
 	Matrix world = model->GetWorldMatrix();
 	Matrix viewproj = camera->GetCamera().GetViewProjectionMatrix();

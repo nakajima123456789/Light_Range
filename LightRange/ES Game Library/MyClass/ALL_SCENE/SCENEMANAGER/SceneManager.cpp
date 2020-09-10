@@ -44,6 +44,11 @@ void SceneManager::DrawAlpha3D() {
 	m_pScene->DrawAlpha3D();
 }
 
+void SceneManager::DrawEnd()
+{
+	m_pScene->DrawEnd();
+}
+
 void SceneManager::Draw2D() {
 	m_pScene->Draw2D();
 }

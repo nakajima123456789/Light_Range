@@ -107,6 +107,7 @@ void MAP_OBJECT_MANAGER::MapSetHitBox()
 	}
 }
 
+
 void MAP_OBJECT_MANAGER::Draw()
 {
 	const unsigned int light_range = 10;
@@ -114,14 +115,15 @@ void MAP_OBJECT_MANAGER::Draw()
 	for (int i = 0; i < map_manager_pos.size(); i++){
 		for (int z = 0; z < map_manager_pos[i].size(); z++)
 		{
+			//二次元配列で管理されているものすべて描画する
 			if (all_map_with_distance[i][z] <= light_range)
 			{
 				float alpha = 1.0f;
-
+				//モデルの情報をシェーダーに与える
 				c_shader_manager[i]->IsModelPass(map_model_manager[i]);
-
+	
 				EFFECT shader = c_shader_manager[i]->ShaderDraw(alpha);
-
+			
 				this->map_model_manager[i]->SetPosition(map_manager_pos[i][z]);
 
 				this->map_model_manager[i]->Draw(shader);
@@ -151,7 +153,6 @@ float MAP_OBJECT_MANAGER::Attenuation(float _index)
 	return 0;
 }
 
-//二次元配列それぞれの座標を入れていく
 void MAP_OBJECT_MANAGER::PosSetMapEachBegin(char tag_name, Vector3 _position)
 {
 	for (int i = 0; i < map_tag_manager.size(); i++)
@@ -159,6 +160,7 @@ void MAP_OBJECT_MANAGER::PosSetMapEachBegin(char tag_name, Vector3 _position)
 		if (tag_name == map_tag_manager[i])
 		{
 			all_map_with_distance[i].push_back(0);
+			//モデルの添え字に座標を入れていく
 			map_manager_pos[i].push_back(_position);
 		}
 		else {
@@ -204,6 +206,7 @@ MAP_OBJECT_MANAGER::~MAP_OBJECT_MANAGER()
 
 float MAP_OBJECT_MANAGER::SpecifiedArgument(Vector3 pos, Vector3 _p)
 {
+	//内積の計算
 	float n_distance = FLT_MAX;
 	const int distance_range = 2.0;
 
@@ -252,7 +255,7 @@ void MAP_MANAGER::MapDataSetAllPosition()
 			Vector3 position = Vector3((1 * map_size) * x, (0 * map_size), -((1 * map_size) * z));
 
 			ASSERT(Tag_sarch(mapdata[z][x]) && "MAPDATEテキストに存在しないタグがあります。");
-
+			//それぞれの文字に座標を入れる。
 			map_object_manager->PosSetMapEachBegin(get_map_date(z, x), position);
 			character_manager->PosSetCharacterEach(get_map_date(z, x), position);
 
@@ -268,7 +271,9 @@ void MAP_MANAGER::MapDataSetAllPosition()
 void MAP_MANAGER::Update()
 {
 	map_object_manager->MapSetHitBox();
+	//プレイヤーの座標を代入しMAPとの距離を計算する
 	map_object_manager->MapDistance((*player_animation_model)->GetPosition() + (*player_animation_model)->GetFrontVector() * 0.09);
+	//ライトの光源設定
 	map_object_manager->Attenuation(0.4);
 
 }
@@ -288,7 +293,7 @@ bool MAP_MANAGER::Tag_sarch(char _is_mapdate)
 	for (int i = 0; i < map_object_manager->GetMapTag().size(); i++)
 	{if (_is_mapdate == map_object_manager->GetMapTag()[i]){flag = true;}}
 
-	char null_char[] = { '\n',' ', };
+	char null_char[] = { '\n',' ', '0','1','2','3','4','5','6','7','8','9'};
 	const size_t size = sizeof(null_char) / sizeof(null_char[0]);
 	for (int i = 0; i < size; i++){if (_is_mapdate == null_char[i]) {flag = true; }}
 

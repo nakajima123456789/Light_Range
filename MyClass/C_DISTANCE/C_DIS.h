@@ -5,39 +5,36 @@
 #include "../../ESGLib.h"
 #include <vector>
 
-class C_DIS
+//------------------------------------------------------------------------------
+//	この関数は２つの座標の距離を調べタグにより最短距離を取得出来ます。
+//------------------------------------------------------------------------------
+class CDis
 {
-public:
-	C_DIS::C_DIS() {}; //	コンストラクタは必ずパブリック
-	virtual C_DIS::~C_DIS() { IsRemove(); };
-
-public:
-
-//	変数定義
 private:
+	CDis* GetThisDis(){ return this; };
 
-	static std::list<C_DIS*> c_dis_list;
+	static std::list<CDis*> c_dis_list;
+
 	std::string tag;
-
-	Vector3 target_position;
-
+	Vector3     pos;
 public:
 
-	void IsTagSet(std::string _tag)           { tag = _tag; };
-	void IsPosition(Vector3 _target_position) { target_position = _target_position; };
+	CDis() {};
+	//sharedptrで管理
+	virtual ~CDis() { IsRemove(); };
 
-//  関数定義
-private:
+	void  Init();
+	void  IsRemove();
+	
+	//タグの最小値を取得関数
+	float GetTagDistance(std::string _tag);
 
-	C_DIS* GetThisDis(){ return this; };
+	//呼び出し元のタグを指定
+	void IsTagSet(std::string _tag);
 
-public:
+	//呼び出し元のモデル座標を取得
+	void IsPosition(Vector3 _pos);
 
-	void  C_DIS::Init();
-	void  C_DIS::IsRemove();
+	bool TagSerch(std::string _tag);
 
-	float C_DIS::GetTagDistance(std::string _tag);
 };
-
-
-

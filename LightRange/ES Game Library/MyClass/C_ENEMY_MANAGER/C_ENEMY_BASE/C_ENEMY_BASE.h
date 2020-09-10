@@ -41,6 +41,8 @@ private:
 
 protected:
 
+	float GetAipha() const { return alpha; };
+
 	float    LockAtTarget(Vector3 _position);
 	float    DisAtTraget(Vector3 _position);
 	Vector3  SkaterAtTraget(Vector3 _position);
@@ -63,6 +65,12 @@ protected:
 	void   IsHitObjectsDraw(Vector3 _pos);
 
 	bool   IsHitObjects(std::string tags);
+
+	bool   FrameTime(int _index);
+
+private:
+
+	int time = 0;
 
 protected:
 

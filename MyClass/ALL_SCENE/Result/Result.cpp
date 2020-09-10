@@ -9,7 +9,7 @@ void C_RESULT::Initialize()
 
 void C_RESULT::Update()
 {
-	if (Input.GetPadInputDown(0))
+	if (Input.GetPadInputDown(11))
 	{
 		SceneManager::ChangeScene(SceneManager::MAIN);
 		return;
